@@ -13,6 +13,8 @@ import Service.PersonneService;
 import Service.UserService;
 import Util.MaConnexion;
 import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 /**
@@ -41,8 +43,8 @@ public class PiDev {
         Employe e2 = new Employe(new Date(120,8,23),"n","p","m","o","u","fff","dfs",new Date(61616464L),12345678);
         user u1 = new user("Lasmar","ahmed","mail@email.com","12345678","www",new Date(120,8,23),"24330330",new Date(120,8,23),"admin","Dev","admin");
         user u2 = new user("a","z","mail@emailcqc.com","123678","www",new Date(130,8,23),"243330",new Date(150,8,23),"admin","Dev","admin");
-        es.ajouterEmploye(e1);
-        es.ajouterEmploye(e2);
+        //es.ajouterEmploye(e1);
+        //es.ajouterEmploye(e2);
         //es.afficherEmploye();
         //es.updateEmploye(e1, e2);
         //es.supprimerEmploye(e1);
@@ -50,6 +52,12 @@ public class PiDev {
         //us.updateUser(u2, u1);
 
         //us.supprimerUser(u2);
-
+        DateFormat dfdny = new SimpleDateFormat("yyyy");
+            String Sny = dfdny.format(u1.getDate_de_naissance());
+            DateFormat dfdnm = new SimpleDateFormat("MM");
+            String Snm = dfdnm.format(u1.getDate_de_naissance());
+            DateFormat dfdnj = new SimpleDateFormat("dd");
+            String Snj = dfdnj.format(u1.getDate_de_naissance());
+            System.out.println(Sny);
     }   
 }

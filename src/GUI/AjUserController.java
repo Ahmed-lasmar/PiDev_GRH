@@ -10,6 +10,8 @@ import Service.UserService;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
@@ -110,8 +112,25 @@ public class AjUserController implements Initializable {
             auc.setAequipe(u.getEquipe());
             auc.setrole(u.getRole());
             
-            u.getDate_de_naissance()
-                    
+            DateFormat dfdny = new SimpleDateFormat("yyyy");
+            String Sny = dfdny.format(u.getDate_de_naissance());
+            DateFormat dfdnm = new SimpleDateFormat("MM");
+            String Snm = dfdnm.format(u.getDate_de_naissance());
+            DateFormat dfdnj = new SimpleDateFormat("dd");
+            String Snj = dfdnj.format(u.getDate_de_naissance());
+            auc.setny(Sny);
+            auc.setnm(Snm);
+            auc.setnj(Snj);
+            
+            DateFormat dfdey = new SimpleDateFormat("yyyy");
+            String Sey = dfdey.format(u.getDate_embauche());
+            DateFormat dfdem = new SimpleDateFormat("MM");
+            String Sem = dfdem.format(u.getDate_embauche());
+            DateFormat dfdej = new SimpleDateFormat("dd");
+            String Sej = dfdej.format(u.getDate_embauche());
+            auc.setey(Sey);
+            auc.setem(Sem);
+            auc.setej(Sej);
                     
             Anom.getScene().setRoot(root);
         } catch (IOException ex) {
