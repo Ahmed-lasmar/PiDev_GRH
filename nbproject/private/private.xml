@@ -3,19 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/MSI%20Si%20Ahmed/Documents/PiDev/PiDev/src/Service/CongeCrud.java</file>
-            <file>file:/C:/Users/MSI%20Si%20Ahmed/Documents/PiDev/PiDev/src/Interfaces/PersonneInterface.java</file>
-            <file>file:/C:/Users/MSI%20Si%20Ahmed/Documents/PiDev/PiDev/src/Service/PersonneService.java</file>
-            <file>file:/C:/Users/MSI%20Si%20Ahmed/Documents/PiDev/PiDev/src/Model/Demande.java</file>
             <file>file:/C:/Users/MSI%20Si%20Ahmed/Documents/PiDev/PiDev/src/Model/user.java</file>
-            <file>file:/C:/Users/MSI%20Si%20Ahmed/Documents/PiDev/PiDev/src/Service/UserService.java</file>
-            <file>file:/C:/Users/MSI%20Si%20Ahmed/Documents/PiDev/PiDev/src/Model/Employe.java</file>
-            <file>file:/C:/Users/MSI%20Si%20Ahmed/Documents/PiDev/PiDev/src/Service/EmployeService.java</file>
             <file>file:/C:/Users/MSI%20Si%20Ahmed/Documents/PiDev/PiDev/src/pidev/PiDev.java</file>
-            <file>file:/C:/Users/MSI%20Si%20Ahmed/Documents/PiDev/PiDev/src/Util/MaConnexion.java</file>
-            <file>file:/C:/Users/MSI%20Si%20Ahmed/Documents/PiDev/PiDev/src/Model/Personne.java</file>
+            <file>file:/C:/Users/MSI%20Si%20Ahmed/Documents/PiDev/PiDev/src/GUI/AjUser.fxml</file>
             <file>file:/C:/Users/MSI%20Si%20Ahmed/Documents/PiDev/PiDev/src/Service/PostuleService.java</file>
-            <file>file:/C:/Users/MSI%20Si%20Ahmed/Documents/PiDev/PiDev/src/Model/Congé.java</file>
+            <file>file:/C:/Users/MSI%20Si%20Ahmed/Documents/PiDev/PiDev/src/GUI/UserWindow.java</file>
+            <file>file:/C:/Users/MSI%20Si%20Ahmed/Documents/PiDev/PiDev/src/GUI/AjUserController.java</file>
         </group>
     </open-files>
 </project-private>
