@@ -40,5 +40,15 @@
       <TextField fx:id="ey" layoutX="177.0" layoutY="466.0" prefHeight="25.0" prefWidth="52.0" promptText="YYYY" />
       <TextField fx:id="em" layoutX="241.0" layoutY="466.0" prefHeight="25.0" prefWidth="37.0" promptText="MM" />
       <TextField fx:id="ej" layoutX="289.0" layoutY="466.0" prefHeight="25.0" prefWidth="37.0" promptText="JJ" />
+      <Label fx:id="errdate" layoutX="333.0" layoutY="265.0" textFill="RED">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="errdatee" layoutX="333.0" layoutY="470.0" textFill="RED">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

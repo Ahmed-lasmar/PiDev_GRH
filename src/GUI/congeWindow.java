@@ -5,7 +5,6 @@
  */
 package GUI;
 
-import java.io.IOException;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -20,15 +19,14 @@ import javafx.stage.Stage;
  *
  * @author MSI Si Ahmed
  */
-public class UserWindow extends Application {
+public class congeWindow extends Application {
     
     @Override
-    public void start(Stage primaryStage) throws IOException {
-        
-        Parent root =FXMLLoader.load(getClass().getResource("AjUser.fxml"));
+    public void start(Stage primaryStage) {
+        Parent root =FXMLLoader.load(getClass().getResource("AjConge.fxml"));
         Scene scene = new Scene(root);
         
-        primaryStage.setTitle("User");
+        primaryStage.setTitle("Conge");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
