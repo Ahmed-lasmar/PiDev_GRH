@@ -20,11 +20,11 @@ import javafx.stage.Stage;
  *
  * @author MSI Si Ahmed
  */
-public class ModConge extends Application {
+public class DeUser extends Application {
     
     @Override
     public void start(Stage primaryStage) throws IOException {
-        Parent root =FXMLLoader.load(getClass().getResource("MConge.fxml"));
+        Parent root =FXMLLoader.load(getClass().getResource("DUser.fxml"));
         Scene scene = new Scene(root);
         
         primaryStage.setTitle("Conge");

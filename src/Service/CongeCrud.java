@@ -90,7 +90,7 @@ public class CongeCrud {
     }
     
     public void updateUser(Congé c, int i) {
-        String req="UPDATE `conge` SET `idPer`=?,`dDepot`=?,`typeDemande`=?,`etatDemande`='?,`dDepart`=?,`dRetour`=? WHERE idCon=?";
+        String req="UPDATE `conge` SET `idPer`=?,`dDepot`=?,`typeDemande`=?,`etatDemande`=?,`dDepart`=?,`dRetour`=? WHERE idCon=?";
         try{
             PreparedStatement pst;
             pst = cnx2.prepareStatement(req);

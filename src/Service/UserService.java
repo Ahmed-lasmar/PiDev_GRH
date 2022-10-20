@@ -109,13 +109,12 @@ public class UserService {
     }
 
     
-    public void supprimerUser(user e) {
+    public void supprimerUser(int e) {
     try {      
-      String sql = "DELETE FROM `user` WHERE `idUser`=? OR `Num_Tel`=?";
+      String sql = "DELETE FROM `user` WHERE `idUser`=?";
       PreparedStatement pst;
       pst=cnx2.prepareStatement(sql);
-      pst.setInt(1, e.getId_user());
-      pst.setString(2, e.getNum_Tel());
+      pst.setInt(1, e);
       pst.executeUpdate();
        
       System.out.println("User a supprimer aves succeé");
