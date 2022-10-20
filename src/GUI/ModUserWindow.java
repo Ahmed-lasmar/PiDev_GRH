@@ -20,14 +20,14 @@ import javafx.stage.Stage;
  *
  * @author MSI Si Ahmed
  */
-public class congeWindow extends Application {
+public class ModUserWindow extends Application {
     
     @Override
     public void start(Stage primaryStage) throws IOException {
-        Parent root =FXMLLoader.load(getClass().getResource("AjConge.fxml"));
+        Parent root =FXMLLoader.load(getClass().getResource("ModUser.fxml"));
         Scene scene = new Scene(root);
         
-        primaryStage.setTitle("Conge");
+        primaryStage.setTitle("User");
         primaryStage.setScene(scene);
         primaryStage.show();
     }

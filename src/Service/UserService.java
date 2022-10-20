@@ -82,8 +82,8 @@ public class UserService {
     }
 
     
-    public void updateUser(user e, user e2) {
-        String req="UPDATE `user` SET `Nom`=?,`Prenom`=?,`Email`=?,`Cin`=?,`URL_Photo`=?,`Date_de_naissance`=?,`Num_Tel`=?,`Date_embauche`=?,`Grade`=?,`Equipe`=?,`Role`=? WHERE `idUser`=? OR `Num_Tel`=?";
+    public void updateUser(user e, int i) {
+        String req="UPDATE `user` SET `Nom`=?,`Prenom`=?,`Email`=?,`Cin`=?,`URL_Photo`=?,`Date_de_naissance`=?,`Num_Tel`=?,`Date_embauche`=?,`Grade`=?,`Equipe`=?,`Role`=? WHERE `idUser`=?";
         try{
             PreparedStatement pst;
             pst = cnx2.prepareStatement(req);
@@ -98,8 +98,7 @@ public class UserService {
             pst.setString(9, e.getGrade());
             pst.setString(10, e.getEquipe());
             pst.setString(11, e.getRole());
-            pst.setInt(12, e2.getId_user());
-            pst.setString(13, e2.getNum_Tel());
+            pst.setInt(12, i);
 
 
             pst.executeUpdate();

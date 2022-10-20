@@ -12,8 +12,6 @@ import java.net.URL;
 import java.sql.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,7 +19,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
@@ -30,7 +27,7 @@ import javafx.scene.control.TextField;
  *
  * @author MSI Si Ahmed
  */
-public class AjUserController implements Initializable {
+public class ModUserController implements Initializable {
 
     @FXML
     private TextField Anom;
@@ -68,6 +65,16 @@ public class AjUserController implements Initializable {
     private Label errdate;
     @FXML
     private Label errdatee;
+    @FXML
+    private TextField id;
+
+    /**
+     * Initializes the controller class.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        // TODO
+    }    
 
     public void setErrdate(String message) {
         this.errdate.setText(message);
@@ -76,17 +83,10 @@ public class AjUserController implements Initializable {
     public void setErrdatee(String message) {
         this.errdatee.setText(message);
     }
-
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }
-
+    
     @FXML
-    private void setAjUser(ActionEvent event) {
+    private void modUser(ActionEvent event) {
+        int idm = Integer.parseInt(id.getText());
         String Nom = Anom.getText();
         String Prenom = Aprenom.getText();
         String Email = Aemail.getText();
@@ -111,7 +111,7 @@ public class AjUserController implements Initializable {
                 user u = new user(Nom, Prenom, Email, Cin, url, new Date(dny, dnm, dnj), numtel, new Date(eny, enm, enj), Grade, Equipe, Role);
                 //user u1 = new user("a","a"    ,"mail@email.com","12345678","www",new Date(120,8,23),"24330330",new Date(120,8,23),"admin","Dev" ,"admin");
                 UserService uc = new UserService();
-                uc.ajouterUser(u);
+                uc.updateUser(u, idm);
                 FXMLLoader loader
                         = new FXMLLoader(getClass().getResource("AfUser.fxml"));
                 try {
@@ -156,7 +156,7 @@ public class AjUserController implements Initializable {
             }
         } else {
             setErrdate("format date 8alta");
-        }
+        } 
     }
-
+    
 }

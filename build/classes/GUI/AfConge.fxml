@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AfCongeController">
+    <children>
+      <TextField fx:id="idper" editable="false" layoutX="178.0" layoutY="67.0" />
+      <TextField fx:id="dy" editable="false" layoutX="178.0" layoutY="114.0" prefHeight="25.0" prefWidth="54.0" promptText="YYYY" />
+      <TextField fx:id="typec" editable="false" layoutX="178.0" layoutY="160.0" />
+      <TextField fx:id="ed" editable="false" layoutX="178.0" layoutY="210.0" />
+      <TextField fx:id="dm" editable="false" layoutX="238.0" layoutY="114.0" prefHeight="25.0" prefWidth="42.0" promptText="MM" />
+      <TextField fx:id="dj" editable="false" layoutX="287.0" layoutY="114.0" prefHeight="25.0" prefWidth="42.0" promptText="JJ" />
+      <TextField fx:id="ddy" editable="false" layoutX="177.0" layoutY="250.0" prefHeight="25.0" prefWidth="54.0" promptText="YYYY" />
+      <TextField fx:id="ddm" editable="false" layoutX="237.0" layoutY="250.0" prefHeight="25.0" prefWidth="42.0" promptText="MM" />
+      <TextField fx:id="ddj" editable="false" layoutX="286.0" layoutY="250.0" prefHeight="25.0" prefWidth="42.0" promptText="JJ" />
+      <TextField fx:id="dry" editable="false" layoutX="177.0" layoutY="288.0" prefHeight="25.0" prefWidth="54.0" promptText="YYYY" />
+      <TextField fx:id="drm" editable="false" layoutX="237.0" layoutY="288.0" prefHeight="25.0" prefWidth="42.0" promptText="MM" />
+      <TextField fx:id="drj" editable="false" layoutX="286.0" layoutY="288.0" prefHeight="25.0" prefWidth="42.0" promptText="JJ" />
+      <Label layoutX="70.0" layoutY="71.0" text="idPer" />
+      <Label layoutX="68.0" layoutY="118.0" text="date de depot" />
+      <Label layoutX="70.0" layoutY="164.0" text="Type de conge" />
+      <Label layoutX="70.0" layoutY="214.0" text="Etat de demande" />
+      <Label layoutX="70.0" layoutY="254.0" text="date de depat" />
+      <Label layoutX="70.0" layoutY="292.0" text="date de retour" />
+   </children>
+</AnchorPane>
