@@ -1,11 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.HomeUController">
-    
+<AnchorPane id="AnchorPane" prefHeight="519.0" prefWidth="934.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.HomeUController">
+   <children>
+      <TableView fx:id="tab" layoutX="14.0" layoutY="63.0" prefHeight="344.0" prefWidth="900.0">
+        <columns>
+          <TableColumn fx:id="id" prefWidth="75.0" text="Id" />
+          <TableColumn fx:id="c2" prefWidth="75.0" text="Nom" />
+            <TableColumn fx:id="c3" prefWidth="75.0" text="Prenom" />
+            <TableColumn fx:id="c4" prefWidth="75.0" text="Email" />
+            <TableColumn fx:id="c5" prefWidth="75.0" text="Cin" />
+            <TableColumn fx:id="c6" prefWidth="75.0" text="URL_Photo" />
+            <TableColumn fx:id="c7" prefWidth="75.0" text="Date de naissance" />
+            <TableColumn fx:id="c8" prefWidth="75.0" text="Num_Tel" />
+            <TableColumn fx:id="c9" prefWidth="75.0" text="Date d'embauche" />
+            <TableColumn fx:id="c10" prefWidth="75.0" text="Grade" />
+            <TableColumn fx:id="c11" prefWidth="75.0" text="Equipe" />
+            <TableColumn fx:id="c12" prefWidth="75.0" text="Role" />
+        </columns>
+      </TableView>
+   </children>
 </AnchorPane>
