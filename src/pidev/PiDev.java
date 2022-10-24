@@ -54,6 +54,6 @@ public class PiDev {
         //us.supprimerUser(u2);
         //u3=us.login(u3);
         //System.out.println(u3);
-        us.updateUserMdp("v", "m");
+        //us.updateUserMdp("v", "m");
     }   
 }

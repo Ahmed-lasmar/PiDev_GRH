@@ -76,7 +76,7 @@ public class ModUserController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     public void setErrdate(String message) {
         this.errdate.setText(message);
@@ -85,7 +85,7 @@ public class ModUserController implements Initializable {
     public void setErrdatee(String message) {
         this.errdatee.setText(message);
     }
-    
+
     @FXML
     private void modUser(ActionEvent event) {
         int idm = Integer.parseInt(id.getText());
@@ -111,7 +111,7 @@ public class ModUserController implements Initializable {
                 dnm = dnm - 1;
                 eny = eny - 1900;
                 enm = enm - 1;
-                user u = new user(Nom, Prenom, Email, Cin, url, new Date(dny, dnm, dnj), numtel, new Date(eny, enm, enj), Grade, Equipe, Role,mdp);
+                user u = new user(Nom, Prenom, Email, Cin, url, new Date(dny, dnm, dnj), numtel, new Date(eny, enm, enj), Grade, Equipe, Role, mdp);
                 //user u1 = new user("a","a"    ,"mail@email.com","12345678","www",new Date(120,8,23),"24330330",new Date(120,8,23),"admin","Dev" ,"admin");
                 UserService uc = new UserService();
                 uc.updateUser(u, idm);
@@ -159,7 +159,7 @@ public class ModUserController implements Initializable {
             }
         } else {
             setErrdate("format date 8alta");
-        } 
+        }
     }
-    
+
 }

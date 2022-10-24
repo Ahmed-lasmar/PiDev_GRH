@@ -40,10 +40,18 @@ public class LoginController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
     private void mdpO(MouseEvent event) {
+        FXMLLoader loader
+                = new FXMLLoader(getClass().getResource("ObliMDP.fxml"));
+        try {
+            Parent root = loader.load();
+            Lmail.getScene().setRoot(root);
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     @FXML
@@ -51,24 +59,23 @@ public class LoginController implements Initializable {
         String mdp = Lmdp.getText();
         String Email = Lmail.getText();
         UserService us = new UserService();
-        user ul = new user (Email,mdp);
+        user ul = new user(Email, mdp);
         user ug = new user();
-        ug=us.login(ul);
+        ug = us.login(ul);
         //System.err.println(ul);
-        if (ug.getId_user()>0) {
+        if (ug.getId_user() > 0) {
             FXMLLoader loader
-                        = new FXMLLoader(getClass().getResource("HomeU.fxml"));
-                try {
-                    Parent root = loader.load();
-                    Lmail.getScene().setRoot(root);
-                }
-                catch (IOException ex) {
-                    System.out.println(ex.getMessage());
-                }
-            
+                    = new FXMLLoader(getClass().getResource("HomeU.fxml"));
+            try {
+                Parent root = loader.load();
+                Lmail.getScene().setRoot(root);
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());
+            }
+
         } else {
             errLogin.setText("mail ou mdp incorrect");
         }
     }
-    
+
 }

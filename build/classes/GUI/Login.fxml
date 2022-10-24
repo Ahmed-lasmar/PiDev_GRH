@@ -11,7 +11,6 @@
    <children>
       <Label layoutX="51.0" layoutY="57.0" text="Mail" />
       <Label layoutX="51.0" layoutY="105.0" text="Mdp" />
-      <Label layoutX="150.0" layoutY="200.0" onDragDetected="#mdpO" text="mdp oublier" textFill="#1d19ff" />
       <TextField fx:id="Lmail" layoutX="110.0" layoutY="53.0" />
       <PasswordField fx:id="Lmdp" layoutX="110.0" layoutY="101.0" />
       <Button layoutX="159.0" layoutY="150.0" mnemonicParsing="false" onAction="#Login" text="Login" />
@@ -20,5 +19,6 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
+      <Button layoutX="142.0" layoutY="187.0" mnemonicParsing="false" onAction="#mdpO" text="mdp oublier" textFill="#0d0054" />
    </children>
 </AnchorPane>
