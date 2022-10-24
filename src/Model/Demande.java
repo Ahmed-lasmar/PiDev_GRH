@@ -20,7 +20,7 @@ public class Demande {
     private String etat_demande;
 
     public Demande(int id,int id_Per, Date date_depot, String type_demande, String etat_demande) {
-        this.id_dem = id_dem;
+        this.id_dem = id;
         this.id_Per = id_Per;
         this.date_depot = date_depot;
         this.type_demande = type_demande;

@@ -20,6 +20,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 /**
@@ -65,8 +66,9 @@ public class ModUserController implements Initializable {
     private Label errdate;
     @FXML
     private Label errdatee;
-    @FXML
     private TextField id;
+    @FXML
+    private PasswordField Mmdp;
 
     /**
      * Initializes the controller class.
@@ -89,6 +91,7 @@ public class ModUserController implements Initializable {
         int idm = Integer.parseInt(id.getText());
         String Nom = Anom.getText();
         String Prenom = Aprenom.getText();
+        String mdp = Mmdp.getText();
         String Email = Aemail.getText();
         String Cin = Acin.getText();
         String url = Aurl.getText();
@@ -108,7 +111,7 @@ public class ModUserController implements Initializable {
                 dnm = dnm - 1;
                 eny = eny - 1900;
                 enm = enm - 1;
-                user u = new user(Nom, Prenom, Email, Cin, url, new Date(dny, dnm, dnj), numtel, new Date(eny, enm, enj), Grade, Equipe, Role);
+                user u = new user(Nom, Prenom, Email, Cin, url, new Date(dny, dnm, dnj), numtel, new Date(eny, enm, enj), Grade, Equipe, Role,mdp);
                 //user u1 = new user("a","a"    ,"mail@email.com","12345678","www",new Date(120,8,23),"24330330",new Date(120,8,23),"admin","Dev" ,"admin");
                 UserService uc = new UserService();
                 uc.updateUser(u, idm);

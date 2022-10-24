@@ -41,8 +41,8 @@ public class PiDev {
         
         Employe e1 = new Employe(new Date(120,7,01),"n","p","m","o","u","fff","dfs",new Date(61616464L),12345678);
         Employe e2 = new Employe(new Date(120,8,23),"n","p","m","o","u","fff","dfs",new Date(61616464L),12345678);
-        user u1 = new user("Lasmar","ahmed","mail@email.com","12345678","www",new Date(120,8,23),"24330330",new Date(120,8,23),"admin","Dev","admin");
-        user u2 = new user("a","z","mail@emailcqc.com","123678","www",new Date(130,8,23),"243330",new Date(150,8,23),"admin","Dev","admin");
+        user u1 = new user("Lasmar","ahmed","mail@email.com","12345678","www",new Date(120,8,23),"24330330",new Date(120,8,23),"admin","Dev","admin","mdp");
+        user u2 = new user("a","z","mail@emailcqc.com","123678","www",new Date(130,8,23),"243330",new Date(150,8,23),"admin","Dev","admin","mdp");
         //es.ajouterEmploye(e1);
         //es.ajouterEmploye(e2);
         //es.afficherEmploye();

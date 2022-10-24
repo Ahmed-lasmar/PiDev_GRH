@@ -25,13 +25,14 @@ public class user {
     private String Grade;
     private String Equipe;
     private String Role;
+    private String mdp;
 
     public user() {
     }
 
     
     
-    public user(int Id_user, String Nom, String Pernom, String Email, String Cin, String URL_Photo, Date Date_de_naissance, String Num_Tel, Date Date_embauche, String Grade, String Equipe, String Role) {
+    public user(int Id_user, String Nom, String Pernom, String Email, String Cin, String URL_Photo, Date Date_de_naissance, String Num_Tel, Date Date_embauche, String Grade, String Equipe, String Role,String mdp) {
         this.Id_user = Id_user;
         this.Nom = Nom;
         this.Pernom = Pernom;
@@ -44,9 +45,18 @@ public class user {
         this.Grade = Grade;
         this.Equipe = Equipe;
         this.Role = Role;
+        this.mdp= mdp;
     }
 
-    public user(String Nom, String Pernom, String Email, String Cin, String URL_Photo, Date Date_de_naissance, String Num_Tel, Date Date_embauche, String Grade, String Equipe, String Role) {
+    public String getMdp() {
+        return mdp;
+    }
+
+    public void setMdp(String mdp) {
+        this.mdp = mdp;
+    }
+
+    public user(String Nom, String Pernom, String Email, String Cin, String URL_Photo, Date Date_de_naissance, String Num_Tel, Date Date_embauche, String Grade, String Equipe, String Role,String mdp) {
         this.Nom = Nom;
         this.Pernom = Pernom;
         this.Email = Email;
@@ -58,6 +68,7 @@ public class user {
         this.Grade = Grade;
         this.Equipe = Equipe;
         this.Role = Role;
+        this.mdp= mdp;
     }
 
     public int getId_user() {

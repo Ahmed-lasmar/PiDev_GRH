@@ -30,7 +30,7 @@ public class UserService {
 
     
     public void ajouterUser(user e) {
-        String req="INSERT INTO `user`(`Nom`, `Prenom`, `Email`, `Cin`, `URL_Photo`, `Date_de_naissance`, `Num_Tel`, `Date_embauche`, `Grade`, `Equipe`, `Role`) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+        String req="INSERT INTO `user`(`Nom`, `Prenom`, `Email`, `Cin`, `URL_Photo`, `Date_de_naissance`, `Num_Tel`, `Date_embauche`, `Grade`, `Equipe`, `Role`, `mdp`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
         try{
             PreparedStatement pst;
             pst = cnx2.prepareStatement(req);
@@ -45,6 +45,7 @@ public class UserService {
             pst.setString(9, e.getGrade());
             pst.setString(10, e.getEquipe());
             pst.setString(11, e.getRole());
+            pst.setString(12, e.getMdp());
 
             pst.executeUpdate();
             System.out.println("added successfully");
@@ -72,6 +73,7 @@ public class UserService {
                 ps.setURL_Photo(rs.getString("URL_Photo"));
                 ps.setDate_de_naissance(rs.getDate("Date_de_naissance"));
                 ps.setNum_Tel(rs.getString("Num_Tel"));
+                ps.setMdp(rs.getString("mdp"));
 
                 myList.add(ps);
             }
@@ -83,7 +85,7 @@ public class UserService {
 
     
     public void updateUser(user e, int i) {
-        String req="UPDATE `user` SET `Nom`=?,`Prenom`=?,`Email`=?,`Cin`=?,`URL_Photo`=?,`Date_de_naissance`=?,`Num_Tel`=?,`Date_embauche`=?,`Grade`=?,`Equipe`=?,`Role`=? WHERE `idUser`=?";
+        String req="UPDATE `user` SET `Nom`=?,`Prenom`=?,`Email`=?,`Cin`=?,`URL_Photo`=?,`Date_de_naissance`=?,`Num_Tel`=?,`Date_embauche`=?,`Grade`=?,`Equipe`=?,`Role`=?,`mdp`=? WHERE `idUser`=?";
         try{
             PreparedStatement pst;
             pst = cnx2.prepareStatement(req);
@@ -98,7 +100,8 @@ public class UserService {
             pst.setString(9, e.getGrade());
             pst.setString(10, e.getEquipe());
             pst.setString(11, e.getRole());
-            pst.setInt(12, i);
+            pst.setString(12, e.getMdp());
+            pst.setInt(13, i);
 
 
             pst.executeUpdate();
