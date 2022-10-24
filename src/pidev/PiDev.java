@@ -50,14 +50,10 @@ public class PiDev {
         //es.supprimerEmploye(e1);
         //us.ajouterUser(u1);
         //us.updateUser(u2, u1);
-
+        //user u3 = new user("v","v");
         //us.supprimerUser(u2);
-        DateFormat dfdny = new SimpleDateFormat("yyyy");
-            String Sny = dfdny.format(u1.getDate_de_naissance());
-            DateFormat dfdnm = new SimpleDateFormat("MM");
-            String Snm = dfdnm.format(u1.getDate_de_naissance());
-            DateFormat dfdnj = new SimpleDateFormat("dd");
-            String Snj = dfdnj.format(u1.getDate_de_naissance());
-            System.out.println(Sny);
+        //u3=us.login(u3);
+        //System.out.println(u3);
+        us.updateUserMdp("v", "m");
     }   
 }

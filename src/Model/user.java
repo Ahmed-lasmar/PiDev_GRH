@@ -30,6 +30,11 @@ public class user {
     public user() {
     }
 
+    public user(String Email, String mdp) {
+        this.Email = Email;
+        this.mdp = mdp;
+    }
+
     
     
     public user(int Id_user, String Nom, String Pernom, String Email, String Cin, String URL_Photo, Date Date_de_naissance, String Num_Tel, Date Date_embauche, String Grade, String Equipe, String Role,String mdp) {
@@ -165,6 +170,11 @@ public class user {
 
     public void setRole(String Role) {
         this.Role = Role;
+    }
+
+    @Override
+    public String toString() {
+        return "user{" + "Id_user=" + Id_user + ", Nom=" + Nom + ", Pernom=" + Pernom + ", Email=" + Email + ", Cin=" + Cin + ", URL_Photo=" + URL_Photo + ", Date_de_naissance=" + Date_de_naissance + ", Num_Tel=" + Num_Tel + ", Date_embauche=" + Date_embauche + ", Grade=" + Grade + ", Equipe=" + Equipe + ", Role=" + Role + ", mdp=" + mdp + '}';
     }
     
     
