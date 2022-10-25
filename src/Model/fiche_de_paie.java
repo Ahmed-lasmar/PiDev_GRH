@@ -16,26 +16,26 @@ public class fiche_de_paie {
     private int ID_FP;
     private int ID_Per;
     private int Salaire_init;
-    private int Prime;
+    private int ID_Prime;
     private int Salaire_total;
     private Date Date_paiement;
     private String Etat_paiement;
 
-    public fiche_de_paie(int ID_FP, int ID_Per, int Salaire_init, int Prime, int Salaire_total, Date Date_paiement, String Etat_paiement) {
+    public fiche_de_paie(int ID_FP, int ID_Per, int Salaire_init, int ID_Prime, int Salaire_total, Date Date_paiement, String Etat_paiement) {
         this.ID_FP = ID_FP;
         this.ID_Per = ID_Per;
         this.Salaire_init = Salaire_init;
-        this.Prime = Prime;
+        this.ID_Prime = ID_Prime;
         this.Salaire_total = Salaire_total;
         this.Date_paiement = Date_paiement;
         this.Etat_paiement = Etat_paiement;
     }
     
 
-    public fiche_de_paie(int ID_Per, int Salaire_init, int Prime, int Salaire_total, Date Date_paiement, String Etat_paiement) {
+    public fiche_de_paie(int ID_Per, int Salaire_init, int ID_Prime, int Salaire_total, Date Date_paiement, String Etat_paiement) {
         this.ID_Per = ID_Per;
         this.Salaire_init = Salaire_init;
-        this.Prime = Prime;
+        this.ID_Prime = ID_Prime;
         this.Salaire_total = Salaire_total;
         this.Date_paiement = Date_paiement;
         this.Etat_paiement = Etat_paiement;
@@ -69,11 +69,11 @@ public class fiche_de_paie {
     }
 
     public int getPrime() {
-        return Prime;
+        return ID_Prime;
     }
 
-    public void setPrime(int Prime) {
-        this.Prime = Prime;
+    public void setPrime(int ID_Prime) {
+        this.ID_Prime = ID_Prime;
     }
 
     public int getSalaire_total() {
@@ -102,7 +102,7 @@ public class fiche_de_paie {
 
     @Override
     public String toString() {
-        return "fiche_de_paie (" + " ID_FP : " + ID_FP + " ID_Per : " + ID_Per + " Salaire_init : " + Salaire_init + " Prime : " + Prime
+        return "fiche_de_paie (" + " ID_FP : " + ID_FP + " ID_Per : " + ID_Per + " Salaire_init : " + Salaire_init + " ID_Prime : " + ID_Prime
                 + " Salaire_total : " +  Salaire_total + " Date_paiement : " + Date_paiement + " Etat_paiement : " + Etat_paiement;
     }
     
