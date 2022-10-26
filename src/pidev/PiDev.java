@@ -51,12 +51,15 @@ public class PiDev {
         //es.supprimerEmploye(e1);
         //us.ajouterUser(u1);
         //us.updateUser(u2, u1);
-        //user u3 = new user("v","v");
+        user u3 = new user("ahmed.lasmar@gmail.com","safnzhneqh");
+                user u4 = new user();
+        System.out.println(u3);
+
         //us.supprimerUser(u2);
-        //u3=us.login(u3);
-        //System.out.println(u3);
+        u4=us.login(u3);
+        System.out.println(u4);
         //us.updateUserMdp("v", "m");
-        SendSMS ss=new SendSMS();
+        //SendSMS ss=new SendSMS();
         
     }   
 }

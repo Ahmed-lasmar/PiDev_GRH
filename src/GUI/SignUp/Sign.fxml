@@ -21,13 +21,13 @@
                 <TextField fx:id="txtFirstname" layoutX="75.0" layoutY="108.0" prefHeight="32.0" prefWidth="278.0" promptText="firstname" />
                 <TextField fx:id="txtLastname" layoutX="75.0" layoutY="166.0" prefHeight="32.0" prefWidth="278.0" promptText="lastname" />
                 <TextField fx:id="txtEmail" layoutX="75.0" layoutY="225.0" prefHeight="32.0" prefWidth="278.0" promptText="email" />
-                <Button layoutX="76.0" layoutY="449.0" mnemonicParsing="false" onAction="#btnSave" onMouseClicked="#HandleEvents" prefHeight="32.0" prefWidth="278.0" styleClass="button2" stylesheets="@Style.css" text="Save" />
+                <Button layoutX="76.0" layoutY="449.0" mnemonicParsing="false" onAction="#btnSave" onMouseClicked="#HandleEvents" prefHeight="32.0" prefWidth="278.0" styleClass="button2" stylesheets="@Style.css" text="s'inscrire" />
             <TextField fx:id="txtCin" layoutX="76.0" layoutY="282.0" prefHeight="32.0" prefWidth="278.0" promptText="CIN" />
             <TextField fx:id="txtNumTel" layoutX="75.0" layoutY="334.0" prefHeight="32.0" prefWidth="278.0" promptText="Num Tel" />
             <TextField fx:id="dY" layoutX="75.0" layoutY="389.0" prefHeight="32.0" prefWidth="100.0" promptText="YYYY" />
             <TextField fx:id="dM" layoutX="190.0" layoutY="389.0" prefHeight="32.0" prefWidth="72.0" promptText="MM" />
             <TextField fx:id="dJ" layoutX="282.0" layoutY="389.0" prefHeight="32.0" prefWidth="72.0" promptText="JJ" />
-            <Label fx:id="setErrdate" layoutX="201.0" layoutY="426.0" textFill="WHITE">
+            <Label fx:id="setErrdate" layoutX="77.0" layoutY="426.0" prefHeight="17.0" prefWidth="278.0" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Black" size="12.0" />
                </font>

@@ -154,7 +154,7 @@ public class SignController implements Initializable {
             }
 
         } else {
-            setErrdate.setText("format date 8alta");
+            setErrdate.setText("le format de la date n'est pas correct.");
         }
     }
 

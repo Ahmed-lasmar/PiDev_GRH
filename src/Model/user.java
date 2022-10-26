@@ -6,6 +6,7 @@
 package Model;
 
 import java.sql.Date;
+import java.util.Objects;
 
 /**
  *
@@ -28,6 +29,30 @@ public class user {
     private String mdp;
 
     public user() {
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final user other = (user) obj;
+        if (!Objects.equals(this.Role, other.Role)) {
+            return false;
+        }
+        return true;
     }
 
     public user(String Email, String mdp) {
