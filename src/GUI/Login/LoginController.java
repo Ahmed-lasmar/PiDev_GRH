@@ -64,7 +64,7 @@ public class LoginController implements Initializable {
             try {
                 Parent root = loader.load();
                 txtPassword.getScene().setRoot(root);
-                System.out.println("houni");
+                //.out.println("houni");
             } catch (IOException ex) {
                 System.out.println(ex.getMessage());
             }
@@ -77,6 +77,15 @@ public class LoginController implements Initializable {
 
     @FXML
     private void btnSignup(ActionEvent event) {
+        FXMLLoader loader
+                    = new FXMLLoader(getClass().getResource("../SignUp/Sign.fxml"));
+            try {
+                Parent root = loader.load();
+                txtPassword.getScene().setRoot(root);
+                System.out.println("houni");
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());
+            }
     }
     
 }
