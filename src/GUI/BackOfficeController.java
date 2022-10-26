@@ -38,8 +38,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import model.Congé;
 import models.Application;
 import models.OffreEmploi;
+import service.CongeCrud;
 import utils.MyConnection;
 
 /**
@@ -55,8 +57,6 @@ public class BackOfficeController implements Initializable {
     private TextField champ_recherche;
     @FXML
     private ImageView searchicon;
-    @FXML
-    private HBox appinspect1;
     @FXML
     private TableView<Application> table_view;
     @FXML
@@ -139,38 +139,73 @@ public class BackOfficeController implements Initializable {
     @FXML
     private AnchorPane offreadmin;
     private String[] comboSkills = {"Java", "Javascript", "Python", "PHP", "C"};
+    @FXML
+    private HBox GesCon;
+    @FXML
+    private HBox gestionapp1;
+    @FXML
+    private AnchorPane HomeC;
+    @FXML
+    private TableView<Congé> tab;
+    @FXML
+    private TableColumn<Congé, Integer> c1;
+    @FXML
+    private TableColumn<Congé, Integer> c2;
+    @FXML
+    private TableColumn<Congé, Date> c3;
+    @FXML
+    private TableColumn<Congé, String> c4;
+    @FXML
+    private TableColumn<Congé, String> c5;
+    @FXML
+    private TableColumn<Congé, Date> c6;
+    @FXML
+    private TableColumn<Congé, Date> c7;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         comboboxa();
         showData();
         comboBox();
         showDatao();
+        loadTableConge();
     }    
 
     @FXML
     private void switchForm(MouseEvent event) {
-         if (event.getSource() == gestionoffres) {
+        if (event.getSource() == gestionoffres) {
             offreadmin.setVisible(true);
             appadmin.setVisible(false);
             searchbox.setVisible(true);
             searchicon.setVisible(true);
+            HomeC.setVisible(false);
 
             gestionoffres.setStyle("-fx-background-color:#666666");
+            GesCon.setStyle("-fx-background-color:#fff");
             gestionapp.setStyle("-fx-background-color:#fff");
-             
+
             showData();
-            
+
         } else if (event.getSource() == gestionapp) {
-           offreadmin.setVisible(false);
+            offreadmin.setVisible(false);
             appadmin.setVisible(true);
             searchbox.setVisible(true);
             searchicon.setVisible(true);
+            HomeC.setVisible(false);
 
-           gestionoffres.setStyle("-fx-background-color:#fff");
+            gestionoffres.setStyle("-fx-background-color:#fff");
+            GesCon.setStyle("-fx-background-color:#fff");
             gestionapp.setStyle("-fx-background-color:#666666");
-          
+            
+        } else if (event.getSource() == GesCon) {
+            offreadmin.setVisible(false);
+            appadmin.setVisible(false);
+            searchbox.setVisible(true);
+            searchicon.setVisible(true);
+            HomeC.setVisible(true);
 
-
+            gestionoffres.setStyle("-fx-background-color:#fff");
+            GesCon.setStyle("-fx-background-color:#666666");
+            gestionapp.setStyle("-fx-background-color:#fff");
         }
     }
 
@@ -515,6 +550,23 @@ public class BackOfficeController implements Initializable {
         }catch(Exception e){}
         
     }
+    ObservableList<Congé> oblist = FXCollections.observableArrayList();
+    CongeCrud us= new CongeCrud();
+    
+    private void loadTableConge(){//affiche foramtion
+        List <Congé> fs =us.afficherDemande();
+        fs.forEach(e->oblist.add(e));
+        System.out.println(oblist);
+        c1.setCellValueFactory(new PropertyValueFactory<>("idCon"));
+        c2.setCellValueFactory(new PropertyValueFactory<>("idPer"));
+        c3.setCellValueFactory(new PropertyValueFactory<>("dDepot"));
+        c4.setCellValueFactory(new PropertyValueFactory<>("typeDemande"));
+        c5.setCellValueFactory(new PropertyValueFactory<>("etatDemande"));
+        c6.setCellValueFactory(new PropertyValueFactory<>("dDepart"));
+        c7.setCellValueFactory(new PropertyValueFactory<>("dRetour"));
+        
+     tab.setItems(oblist);
+    } 
     public ObservableList<OffreEmploi> dataListo(){
         
        

@@ -149,6 +149,7 @@ public class UserService {
                 ps.setDate_de_naissance(rs.getDate("Date_de_naissance"));
                 ps.setNum_Tel(rs.getString("Num_Tel"));
                 ps.setMdp(rs.getString("mdp"));
+                ps.setRole(rs.getString("Role"));
                 System.err.println("t3adet \n");}
 
                 //System.err.println("t3adet \n");
@@ -173,6 +174,41 @@ public class UserService {
             System.out.println("Modifie successfully");
         }catch(SQLException ex){
             System.err.println(ex.getMessage());
+        }
+    }
+    public user CherById(int u){
+    try {
+            String req4="SELECT * FROM `user` WHERE `idUser`="+u;
+            
+            
+            Statement st= cnx2.createStatement();
+            ResultSet rs=st.executeQuery(req4);
+            
+                user ps=new user();
+                ps.setId_user(-1);
+                while(rs.next()){
+                ps.setId_user(rs.getInt("idUser"));
+                ps.setNom(rs.getString("Nom"));
+                ps.setPernom(rs.getString("Prenom"));
+                ps.setDate_embauche(rs.getDate("Date_embauche"));
+                ps.setGrade(rs.getString("Grade"));
+                ps.setEquipe(rs.getString("Equipe"));
+                ps.setEmail(rs.getString("Email"));
+                ps.setCin(rs.getString("CIN"));
+                ps.setURL_Photo(rs.getString("URL_Photo"));
+                ps.setDate_de_naissance(rs.getDate("Date_de_naissance"));
+                ps.setNum_Tel(rs.getString("Num_Tel"));
+                ps.setMdp(rs.getString("mdp"));
+                ps.setRole(rs.getString("Role"));
+                System.err.println("t3adet \n");}
+
+                //System.err.println("t3adet \n");
+            
+                return ps;
+            
+        } catch (SQLException ex) {
+            System.err.println("mat3adetch \n"+ex.getMessage());
+            return null;
         }
     }
 }

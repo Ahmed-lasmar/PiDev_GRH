@@ -5,6 +5,7 @@
  */
 package GUI.Login;
 
+import GUI.Empl.EmpDBController;
 import Model.user;
 import Service.UserService;
 import java.io.IOException;
@@ -66,11 +67,9 @@ public class LoginController implements Initializable {
             Notifications.create().title("Login avec Succes")
                     .text("Bonjour " + ug.getNom())
                     .showInformation();
+            System.out.println(ug.getRole());
+            if (ug.getRole().equals("RRH")) {
 
-            if (false) {
-            } else {
-            }
-            {
                 System.out.println("rrh t3adet");
                 FXMLLoader loader
                         = new FXMLLoader(getClass().getResource("../BackOffice.fxml"));
@@ -81,9 +80,42 @@ public class LoginController implements Initializable {
                 } catch (IOException ex) {
                     System.out.println(ex.getMessage());
                 }
-            }
-           
 
+            }
+            else if(ug.getRole().equals("client"))
+            {
+                System.out.println("client t3adet");
+                FXMLLoader loader
+                        = new FXMLLoader(getClass().getResource("../../GUI_Client/Workvision.fxml"));
+                try {
+                    Parent rootc = loader.load();
+                    
+                    txtPassword.getScene().setRoot(rootc);
+                    
+                    //.out.println("houni");
+                } catch (IOException ex) {
+                    System.out.println(ex.getMessage());
+                }
+                
+            }
+            else if(ug.getRole().equals("employe"))
+            {
+                System.out.println("client t3adet");
+                FXMLLoader loader
+                        = new FXMLLoader(getClass().getResource("../Empl/EmpDB.fxml"));
+                try {
+                    Parent rootc = loader.load();
+                    EmpDBController edbc = loader.getController();
+                    
+                    edbc.setiduser(""+ug.getId_user());
+                    txtPassword.getScene().setRoot(rootc);
+                    
+                    //.out.println("houni");
+                } catch (IOException ex) {
+                    System.out.println(ex.getMessage());
+                }
+                
+            }
         } else {
             //errLogin.setText("mail ou mdp incorrect");
             System.out.println("user moch ma3rouf");
