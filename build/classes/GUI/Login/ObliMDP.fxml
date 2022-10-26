@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="421.0" prefWidth="356.0" style="-fx-background-color: #1A1A1A;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Login.ObliMDPController">
+   <children>
+      <Label layoutX="101.0" layoutY="128.0" text="Reset Mot de Passe" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtUsername" layoutX="41.0" layoutY="167.0" prefHeight="34.0" prefWidth="275.0" promptText="email" style="-fx-background-color: #F1F1F1; -fx-text-fill: #3E3E3E;" />
+                <Button layoutX="110.0" layoutY="217.0" mnemonicParsing="false" onAction="#btOBL" onMouseClicked="#handleButtonAction" prefHeight="34.0" prefWidth="137.0" style="-fx-background-color: #F1F1F1; -fx-font-family: Segoe UI;" text="Sign in" />
+
+   </children>
+</AnchorPane>

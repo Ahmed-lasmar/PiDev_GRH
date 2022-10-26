@@ -19,20 +19,19 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import org.controlsfx.control.Notifications;
 
 /**
  * FXML Controller class
  *
  * @author MSI Si Ahmed
- */
+ */ 
 public class LoginController implements Initializable {
 
     @FXML
     private TextField txtUsername;
     @FXML
     private PasswordField txtPassword;
-    @FXML
-    private Label btnForgot;
     @FXML
     private Label lblErrors;
 
@@ -59,6 +58,9 @@ public class LoginController implements Initializable {
         ug = us.login(ul);
         //System.err.println(ul);
         if (ug.getId_user() > 0) {
+            Notifications.create().title("Login avec Succes")
+                    .text("Bonjour "+ug.getNom())
+                    .showInformation();
             FXMLLoader loader
                     = new FXMLLoader(getClass().getResource("../HomeU.fxml"));
             try {
@@ -86,6 +88,18 @@ public class LoginController implements Initializable {
             } catch (IOException ex) {
                 System.out.println(ex.getMessage());
             }
+    }
+
+    @FXML
+    private void btnForgot(MouseEvent event) {
+        FXMLLoader loader
+                = new FXMLLoader(getClass().getResource("ObliMDP.fxml"));
+        try {
+            Parent root = loader.load();
+            txtPassword.getScene().setRoot(root);
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
     
 }

@@ -34,10 +34,10 @@
         </AnchorPane>
         <Pane layoutX="488.0" layoutY="100.0" AnchorPane.bottomAnchor="73.0" AnchorPane.topAnchor="100.0">
             <children>
-                <TextField fx:id="txtUsername" layoutX="7.0" prefHeight="34.0" prefWidth="275.0" promptText="email" />
-                <PasswordField fx:id="txtPassword" layoutX="7.0" layoutY="61.0" prefHeight="34.0" prefWidth="275.0" promptText="password" stylesheets="@Style.css" />
+                <TextField fx:id="txtUsername" layoutX="7.0" prefHeight="34.0" prefWidth="275.0" promptText="email" style="-fx-background-color: #3E3E3E; -fx-text-fill: #FFFFFF;" />
+                <PasswordField fx:id="txtPassword" layoutX="7.0" layoutY="61.0" prefHeight="34.0" prefWidth="275.0" promptText="password" style="-fx-background-color: #3E3E3E; -fx-text-fill: #FFFFFF;" stylesheets="@Style.css" />
                 <Button layoutX="145.0" layoutY="125.0" mnemonicParsing="false" onAction="#btnSignin" onMouseClicked="#handleButtonAction" prefHeight="34.0" prefWidth="137.0" stylesheets="@Style.css" text="Sign in" />
-                <Label fx:id="btnForgot" alignment="CENTER" layoutX="8.0" layoutY="131.0" prefHeight="23.0" prefWidth="93.0" text="Forgot Password" textFill="#30302e">
+                <Label alignment="CENTER" layoutX="8.0" layoutY="131.0" onDragDetected="#btnForgot" prefHeight="23.0" prefWidth="93.0" style="-fx-background-color: #fff;" text="Forgot Password" textFill="#30302e">
                     <font>
                         <Font name="Segoe UI" size="12.0" />
                     </font>

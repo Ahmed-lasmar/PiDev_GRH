@@ -10,6 +10,7 @@ import Model.Personne;
 import Model.user;
 import Service.EmployeService;
 import Service.PersonneService;
+import Service.SendSMS;
 import Service.UserService;
 import Util.MaConnexion;
 import java.sql.Date;
@@ -55,5 +56,7 @@ public class PiDev {
         //u3=us.login(u3);
         //System.out.println(u3);
         //us.updateUserMdp("v", "m");
+        SendSMS ss=new SendSMS();
+        
     }   
 }
