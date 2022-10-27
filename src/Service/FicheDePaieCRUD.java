@@ -5,6 +5,7 @@
  */
 package service;
 import Model.fiche_de_paie;
+import Model.prime;
 import Util.MaConnexion;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -13,8 +14,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 /**
  *
  * @author khlif
@@ -56,7 +55,6 @@ public class FicheDePaieCRUD {
     
     /**
      *
-     * @param fp
      * @param fp1
      */
     public void modifierFicheDePaie( fiche_de_paie fp1){
@@ -105,21 +103,7 @@ public class FicheDePaieCRUD {
         return myList;
     }
     
-    public void calculer_Salaire( fiche_de_paie fp1,int nbr){
-        try {
-            System.out.println("calculer la salaire ");
-            int salaire_Sans_Prime;
-            if (nbr<50){salaire_Sans_Prime=nbr*12;}
-            else{salaire_Sans_Prime=50*12+(nbr-50)*15;}
-            String rqt = " UPDATE `fiche_de_paie` SET `Salaire_init`=? WHERE ID_FP=?";
-            PreparedStatement pst = new MaConnexion().getCnx().prepareStatement(rqt);
-            pst.setInt(1,salaire_Sans_Prime);
-            pst.setInt(2, fp1.getID_FP());
-            }
-         catch (SQLException ex) {
-            System.err.println(ex.getMessage());
-        }
-    }
+    
     
     
 }

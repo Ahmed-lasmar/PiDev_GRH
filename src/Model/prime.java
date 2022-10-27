@@ -17,6 +17,7 @@ public class prime {
     private String Type_Prime;
     private int Valeur_Prime;
     private Date Date_Prime;
+    public int getValeur_Prime;
 
     public prime(int ID_Prime, String Type_Prime, int Valeur_Prime, Date Date_Prime) {
         this.ID_Prime = ID_Prime;
