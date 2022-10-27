@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="579.0" prefWidth="847.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui2.FormationController">
+   <children>
+      <TabPane layoutX="21.0" layoutY="14.0" prefHeight="522.0" prefWidth="1034.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Formation">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="158.0" layoutY="101.0" text="ID:" />
+                        <Label layoutX="109.0" layoutY="147.0" text="ID formateur:" />
+                        <Label layoutX="644.0" layoutY="101.0" text="Date:" />
+                        <Label layoutX="614.0" layoutY="147.0" text=" Nom formation:" />
+                        <Label layoutX="72.0" layoutY="190.0" text="Num collaborateurs:" />
+                        <TextField fx:id="tfID" layoutX="209.0" layoutY="97.0" />
+                        <TextField fx:id="tfIDF" layoutX="209.0" layoutY="143.0" />
+                        <TextField fx:id="tfNom" layoutX="737.0" layoutY="143.0" />
+                        <TextField fx:id="tfNum" layoutX="209.0" layoutY="186.0" />
+                        <Button fx:id="btnAjouter" layoutX="294.0" layoutY="422.0" mnemonicParsing="false" onAction="#addFormation" text="Ajouter">
+                           <font>
+                              <Font size="21.0" />
+                           </font></Button>
+                        <DatePicker fx:id="dpDate" layoutX="712.0" layoutY="97.0" />
+                        <Button fx:id="btnSup" layoutX="491.0" layoutY="422.0" mnemonicParsing="false" onMouseClicked="#deleteFormation" text="supprimer">
+                           <font>
+                              <Font size="21.0" />
+                           </font></Button>
+                        <Button fx:id="btnModif" layoutX="712.0" layoutY="422.0" mnemonicParsing="false" onMouseClicked="#updateFormation" text="Modifer">
+                           <font>
+                              <Font size="21.0" />
+                           </font></Button>
+                        <TableView fx:id="Table_Formations" layoutX="6.0" layoutY="242.0" onMouseClicked="#formation_select" prefHeight="162.0" prefWidth="1014.0">
+                          <columns>
+                            <TableColumn fx:id="a_ID" prefWidth="75.0" text="ID" />
+                            <TableColumn fx:id="a_IDF" prefWidth="95.0" text="ID Formateur" />
+                              <TableColumn fx:id="a_Nom" prefWidth="154.0" text="Nom" />
+                              <TableColumn fx:id="a_Date" prefWidth="254.0" text="Date" />
+                              <TableColumn fx:id="a_NC" prefWidth="434.0" text="Numero Collaborateurs" />
+                          </columns>
+                        </TableView>
+                        <Button fx:id="btn_stat" layoutX="685.0" layoutY="17.0" mnemonicParsing="false" onMouseClicked="#Statistique" prefHeight="45.0" prefWidth="201.0" text="Stats">
+                           <font>
+                              <Font size="21.0" />
+                           </font></Button>
+                        <TextField fx:id="Id_Recherchetf" layoutX="16.0" layoutY="14.0" promptText="chercher" />
+                        <Button fx:id="btn_RechercheID" layoutX="219.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#ChercherIDAM" text="Chercher" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="formateur">
+            <content>
+              <AnchorPane accessibleRole="TEXT_AREA" minHeight="0.0" minWidth="0.0" prefHeight="493.0" prefWidth="999.0">
+                     <children>
+                        <Label layoutX="394.0" layoutY="59.0" text="prenom:" />
+                        <Label layoutX="757.0" layoutY="59.0" text="adresse:" />
+                        <Label layoutX="75.0" layoutY="94.0" text="email:" />
+                        <Label layoutX="409.0" layoutY="94.0" text="tel:" />
+                        <Label layoutX="735.0" layoutY="94.0" text="code postal:" />
+                        <Label layoutX="78.0" layoutY="128.0" text="ville:" />
+                        <Label layoutX="403.0" layoutY="128.0" text="pays:" />
+                        <Label layoutX="762.0" layoutY="128.0" text="status:" />
+                        <Label layoutX="407.0" layoutY="161.0" text="tva:" />
+                        <Label layoutX="81.0" layoutY="195.0" text="bio:" />
+                        <Label layoutX="77.0" layoutY="59.0" text="nom:" />
+                        <Label layoutX="757.0" layoutY="161.0" text="diplome:" />
+                        <Label layoutX="79.0" layoutY="161.0" text="tarif:" />
+                        <TextField fx:id="nomA" layoutX="135.0" layoutY="55.0" />
+                        <TextField fx:id="prenomA" layoutX="462.0" layoutY="55.0" />
+                        <TextField fx:id="adresseA" layoutX="815.0" layoutY="55.0" />
+                        <TextField fx:id="emailA" layoutX="135.0" layoutY="90.0" />
+                        <TextField fx:id="telA" layoutX="462.0" layoutY="90.0" />
+                        <TextField fx:id="CPA" layoutX="815.0" layoutY="90.0" />
+                        <TextField fx:id="VilleA" layoutX="135.0" layoutY="124.0" />
+                        <TextField fx:id="payA" layoutX="462.0" layoutY="124.0" />
+                        <TextField fx:id="statusA" layoutX="815.0" layoutY="124.0" />
+                        <TextField fx:id="tarifA" layoutX="135.0" layoutY="157.0" />
+                        <TextField fx:id="tvaA" layoutX="462.0" layoutY="157.0" />
+                        <TextField fx:id="bioA" layoutX="135.0" layoutY="191.0" />
+                        <TextField fx:id="diplomeA" layoutX="815.0" layoutY="157.0" />
+                        <TableView fx:id="Table_Formateur" layoutX="9.0" layoutY="237.0" onMouseClicked="#select_formateur" prefHeight="200.0" prefWidth="1016.0">
+                          <columns>
+                            <TableColumn fx:id="idCA" prefWidth="34.0" text="id" />
+                            <TableColumn fx:id="nomCA" prefWidth="39.0" text="nom" />
+                              <TableColumn fx:id="prenomCA" prefWidth="56.999969482421875" text="prenom" />
+                              <TableColumn fx:id="adresseCA" prefWidth="58.000030517578125" text="adresse" />
+                              <TableColumn fx:id="emailCA" prefWidth="97.0" text="email" />
+                              <TableColumn fx:id="telCA" minWidth="1.0" prefWidth="72.0" text="tel" />
+                              <TableColumn fx:id="codePCA" prefWidth="72.0" text="codeP" />
+                              <TableColumn fx:id="villeCA" prefWidth="65.0" text="ville" />
+                              <TableColumn fx:id="payCA" prefWidth="51.0" text="pays" />
+                              <TableColumn fx:id="statusCA" prefWidth="61.0" text="status" />
+                              <TableColumn fx:id="terifCA" prefWidth="63.0" text="terif" />
+                              <TableColumn fx:id="tvaCA" prefWidth="55.0" text="tva" />
+                              <TableColumn fx:id="bioCA" prefWidth="212.0" text="bio" />
+                              <TableColumn fx:id="diplomeCA" prefWidth="98.0" text="diplome" />
+                          </columns>
+                        </TableView>
+                        <Button layoutX="725.0" layoutY="445.0" mnemonicParsing="false" onMouseClicked="#updateFormateur" text="Modifier">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="517.0" layoutY="445.0" mnemonicParsing="false" onMouseClicked="#deleteFormateur" text="Supprimer">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="333.0" layoutY="444.0" mnemonicParsing="false" onAction="#addFormateur" text="Ajouter">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
