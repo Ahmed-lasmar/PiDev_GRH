@@ -20,13 +20,22 @@ import javafx.scene.control.TreeTableView;
 import service.FicheDePaieCRUD;
 import Model.*;
 import Service.PrimeCRUD;
+import java.io.IOException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  * FXML Controller class
@@ -63,8 +72,6 @@ public class CRUDController implements Initializable {
     private TextField init_textfield;
     @FXML
     private TextField prime_textfield;
-    @FXML
-    private Button actualiser;
     @FXML
     private Button ajouter;
     @FXML
@@ -119,6 +126,18 @@ public class CRUDController implements Initializable {
     private TableColumn<prime, DatePicker> date_prime_colonne_2;
     @FXML
     private DatePicker date_prime_textfield_2;
+    @FXML
+    private Label nombre_heure_2;
+    @FXML
+    private TextField nombre_heure_textfield_2;
+    @FXML
+    private ComboBox<String> trie_combobox_1;
+    @FXML
+    private Button button_croissant;
+    @FXML
+    private Button button_decroissant;
+    @FXML
+    private Button Statistique;
 
     /**
      * Initializes the controller class.
@@ -128,6 +147,7 @@ public class CRUDController implements Initializable {
         
         loadTablefichedepaie();
         loadTableprime();
+        trie_combobox_1.setItems(FXCollections.observableArrayList("Salaire_init","Salaire_total"));
     }    
 
     @FXML
@@ -228,12 +248,14 @@ public class CRUDController implements Initializable {
           System.out.println("controlle de saisie modification !");   
          }
          else{
+             
              fpcrud.modifierFicheDePaie(a);
-             paiement_tableau.getItems().clear();
-        
-        loadTablefichedepaie();
+             
+       
+         
          }
-        
+          paiement_tableau.getItems().clear();
+        loadTablefichedepaie();
         
     }
 
@@ -247,18 +269,19 @@ public class CRUDController implements Initializable {
         prime_textfield.setText(id_prime_colonne.getCellData(index).toString());
         total_textfield.setText(salaire_total_colonne.getCellData(index).toString());
         etat_textfield.setText(etat_paiement_colonne.getCellData(index));
-       
-        
         
     }
 
     @FXML
     private void ajouter_prime(ActionEvent event) {
         
+        int nbrh = Integer.parseInt(nombre_heure_textfield_2.getText());
         java.sql.Date date_paiement = Date.valueOf(date_prime_textfield_2.getValue());
         int id_prime = Integer.parseInt(id_prime_textfield_2.getText());
         String type_prime = type_prime_textfield_2.getText();
         int valeur_prime = Integer.parseInt(valeur_prime_textfield_2.getText());
+       if (nbrh>50){ valeur_prime = valeur_prime +(nbrh-50)*15;}
+        
         prime fp = new prime(id_prime, type_prime, valeur_prime, date_paiement);
         
         if((type_prime=="")||(valeur_prime<0)){
@@ -266,9 +289,9 @@ public class CRUDController implements Initializable {
         }
         else{
             PrimeCRUD fpcrud = new PrimeCRUD();
-        fpcrud.ajouterPrime(fp);   
-        tableau_prime_2.getItems().clear();
-        loadTableprime();
+            fpcrud.ajouterPrime(fp);
+            tableau_prime_2.getItems().clear();
+            loadTableprime();
         }
         
     }
@@ -287,13 +310,14 @@ public class CRUDController implements Initializable {
     @FXML
     private void modifier_prime(ActionEvent event) {
         
+        int nbrh = Integer.parseInt(nombre_heure_textfield_2.getText());
         prime a = tableau_prime_2.getSelectionModel().getSelectedItem();
         PrimeCRUD fpcrud = new PrimeCRUD();
         java.sql.Date date_paiement = Date.valueOf(date_prime_textfield_2.getValue());
         int nbr1=Integer.parseInt(id_prime_textfield_2.getText());
         String nbr2=type_prime_textfield_2.getText();  
         int nbr3=Integer.parseInt(valeur_prime_textfield_2.getText());  
-        
+        if (nbrh>50){ nbr3 = nbr3 +(nbrh-50)*15;}
          a.setID_Prime(nbr1);
          a.setType_Prime(type_prime_textfield_2.getText());
          a.setValeur_Prime(nbr3);
@@ -323,6 +347,44 @@ public class CRUDController implements Initializable {
         valeur_prime_textfield_2.setText(valeur_prime_colonne_2.getCellData(index).toString());
         
     }
-    
-    
+    /*
+    @FXML
+    private void calcul_nombre_heure(){
+        
+        int nbrh = Integer.parseInt(nombre_heure_textfield_2.getText());
+        FicheDePaieCRUD fp = new FicheDePaieCRUD();
+        fp.calculer_Salaire(p, nbrh);
+    }
+    */
+/*
+    @FXML
+    private void statistique(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("statistique1.fxml"));
+            Parent root =loader.load();
+            Statistique1Controller e = loader.getController();
+            
+        } catch (IOException ex) {
+            System.out.println("echec statistique ");
+        }
+    }*/
+    @FXML
+    private void statistique(ActionEvent event) {
+        try {
+                   
+            Parent parent =  FXMLLoader.load(getClass().getResource("statistique1.fxml"));
+            Scene scene = new Scene(parent);
+            
+            Stage stage = new Stage();
+            
+          
+            stage.setScene(scene);
+          
+            stage.initStyle(StageStyle.UTILITY);
+          
+            stage.show();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage()); 
+        }
+    }
 }

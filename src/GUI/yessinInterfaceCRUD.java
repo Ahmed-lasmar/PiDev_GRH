@@ -6,17 +6,12 @@
 package GUI;
 
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  *
@@ -40,18 +35,20 @@ public class yessinInterfaceCRUD extends Application {
             StackPane root = new StackPane();
             root.getChildren().add(btn);
             */
-            Parent root = FXMLLoader.load(getClass().getResource("CRUD.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("progressbar.fxml"));
             Scene scene = new Scene(root);
             
             primaryStage.setTitle("Yessin");
             primaryStage.setScene(scene);
+            // sans decore 
+            //primaryStage.initStyle(StageStyle.UNDECORATED);
             primaryStage.show();
         } catch (IOException ex) {
             System.err.println(ex.getMessage());
         }
     }
 
-    /**
+    /*
      * @param args the command line arguments
      */
     public static void main(String[] args) {
