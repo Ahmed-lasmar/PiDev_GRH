@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CRUDController">
+   <children>
+      <TabPane layoutX="-1.0" layoutY="-2.0" prefHeight="720.0" prefWidth="960.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Fiche De Paiement">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <DatePicker fx:id="date_textfield" layoutX="250.0" layoutY="288.0" />
+                        <Label fx:id="id_fp_label" layoutX="145.0" layoutY="73.0" text="ID_FP" />
+                        <Label fx:id="id_per_label" layoutX="142.0" layoutY="117.0" text="ID_Per" />
+                        <Label fx:id="salaire_init_label" layoutX="141.0" layoutY="166.0" text="Salaire_init" />
+                        <Label fx:id="id_prime_label" layoutX="145.0" layoutY="202.0" text="ID_Prime" />
+                        <TextField fx:id="total_textfield" layoutX="250.0" layoutY="238.0" prefHeight="26.0" prefWidth="175.0" />
+                        <TextField fx:id="etat_textfield" layoutX="250.0" layoutY="332.0" prefHeight="26.0" prefWidth="175.0" />
+                        <TextField fx:id="id_fp_textfield" layoutX="250.0" layoutY="69.0" prefHeight="26.0" prefWidth="175.0" />
+                        <Label fx:id="salaire_total_label" layoutX="137.0" layoutY="242.0" text="Salaire_total" />
+                        <Label fx:id="date_paiement_label" layoutX="139.0" layoutY="292.0" text="Date_paiement" />
+                        <Label fx:id="etat_paiement_label" layoutX="141.0" layoutY="336.0" text="Etat_paiement" />
+                        <TextField fx:id="id_per_textfield" layoutX="250.0" layoutY="113.0" prefHeight="26.0" prefWidth="175.0" />
+                        <TextField fx:id="init_textfield" layoutX="250.0" layoutY="157.0" prefHeight="26.0" prefWidth="175.0" />
+                        <TextField fx:id="prime_textfield" layoutX="250.0" layoutY="197.0" prefHeight="26.0" prefWidth="175.0" />
+                        <Button fx:id="Statistique" layoutX="727.0" layoutY="290.0" mnemonicParsing="false" onAction="#statistique" prefHeight="52.0" prefWidth="134.0" text="Statistique" />
+                        <Button fx:id="ajouter" layoutX="726.0" layoutY="82.0" mnemonicParsing="false" onAction="#ajouter_fiche_de_paiement" prefHeight="43.0" prefWidth="133.0" text="Ajouter" />
+                        <Button fx:id="supprimer" layoutX="726.0" layoutY="149.0" mnemonicParsing="false" onAction="#supprimer_fiche_de_paie" prefHeight="46.0" prefWidth="134.0" text="Supprimer" />
+                        <Button fx:id="modifier" layoutX="726.0" layoutY="219.0" mnemonicParsing="false" onAction="#modifier_fiche_de_paie" prefHeight="46.0" prefWidth="135.0" text="Modifier" />
+                        <TableView fx:id="paiement_tableau" layoutX="55.0" layoutY="388.0" onMouseClicked="#fiche_de_paie_selected" prefHeight="235.0" prefWidth="663.0">
+                          <columns>
+                            <TableColumn fx:id="id_fp_colonne" prefWidth="75.0" text="ID_FP" />
+                            <TableColumn fx:id="id_per_colonne" prefWidth="75.0" text="ID_Per" />
+                              <TableColumn fx:id="salaire_init_colonne" prefWidth="96.0" text="Salaire_init" />
+                              <TableColumn fx:id="id_prime_colonne" prefWidth="79.20001220703125" text="ID_Prime" />
+                              <TableColumn fx:id="salaire_total_colonne" prefWidth="107.20001220703125" text="Salaire_total" />
+                              <TableColumn fx:id="date_paiement_colonne" prefWidth="101.60003662109375" text="Date_paiement" />
+                              <TableColumn fx:id="etat_paiement_colonne" prefWidth="125.5999633789063" text="Etat_paiement" />
+                          </columns>
+                        </TableView>
+                        <ComboBox fx:id="trie_combobox_1" layoutX="756.0" layoutY="388.0" prefWidth="150.0" promptText="Trie selon" />
+                        <Button fx:id="button_croissant" layoutX="861.0" layoutY="542.0" mnemonicParsing="false" text="Croissant" />
+                        <Button fx:id="button_decroissant" layoutX="744.0" layoutY="542.0" mnemonicParsing="false" text="Decroissant" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Prime">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="ajouter_prime_2" layoutX="763.0" layoutY="64.0" mnemonicParsing="false" onAction="#ajouter_prime" prefHeight="47.0" prefWidth="132.0" text="Ajouter" />
+                        <Button fx:id="supprimer_prime_2" layoutX="764.0" layoutY="138.0" mnemonicParsing="false" onAction="#supprimer_prime" prefHeight="47.0" prefWidth="129.0" text="Supprimer" />
+                        <Button fx:id="modifier_prime_2" layoutX="764.0" layoutY="219.0" mnemonicParsing="false" onAction="#modifier_prime" prefHeight="54.0" prefWidth="130.0" text="Modifier" />
+                        <Label fx:id="id_prime_label_2" layoutX="232.0" layoutY="102.0" text="ID_Prime" />
+                        <Label fx:id="type_prime_label_2" layoutX="232.0" layoutY="153.0" text="Type_Prime" />
+                        <Label fx:id="valeur_prime_label_2" layoutX="234.0" layoutY="197.0" text="Valeur_Prime" />
+                        <Label fx:id="date_prime_label_2" layoutX="238.0" layoutY="246.0" text="Date_Prime" />
+                        <TextField fx:id="id_prime_textfield_2" layoutX="364.0" layoutY="98.0" />
+                        <TextField fx:id="valeur_prime_textfield_2" layoutX="364.0" layoutY="193.0" />
+                        <TextField fx:id="type_prime_textfield_2" layoutX="364.0" layoutY="140.0" />
+                        <TableView fx:id="tableau_prime_2" layoutX="300.0" layoutY="388.0" onMouseClicked="#prime_selected" prefHeight="217.0" prefWidth="380.0">
+                          <columns>
+                            <TableColumn fx:id="id_prime_colonne_2" prefWidth="75.0" text="ID_Prime" />
+                            <TableColumn fx:id="type_prime_colonne_2" prefWidth="92.0" text="Type_Prime" />
+                              <TableColumn fx:id="valeur_prime_colonne_2" prefWidth="103.99996948242188" text="Valeur_Prime" />
+                              <TableColumn fx:id="date_prime_colonne_2" prefWidth="108.0" text="Date_Prime" />
+                          </columns>
+                        </TableView>
+                        <DatePicker fx:id="date_prime_textfield_2" layoutX="364.0" layoutY="242.0" />
+                        <Label fx:id="nombre_heure_2" layoutX="238.0" layoutY="307.0" text="Nombre_Heure" />
+                        <TextField fx:id="nombre_heure_textfield_2" layoutX="364.0" layoutY="303.0" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

@@ -45,6 +45,7 @@ public class DelCongeController implements Initializable {
     private void fasa8(ActionEvent event) {
         int id = Integer.parseInt(textid.getText());
         CongeCrud uc = new CongeCrud();
+        
                 uc.supprimerConge(id);
                setvalD(id+" tfasa5");
     }

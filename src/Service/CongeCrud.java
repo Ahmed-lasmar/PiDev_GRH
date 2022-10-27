@@ -77,7 +77,7 @@ public class CongeCrud {
     public void supprimerConge(int id)  {
          
         try {
-            System.out.println("entre l Id de demande a supprimer");
+            
             String sql = "DELETE FROM `conge` WHERE idCon=?";
             PreparedStatement st=cnx2.prepareStatement(sql);
             st.setInt(1, id);

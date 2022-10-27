@@ -67,7 +67,7 @@ public class LoginController implements Initializable {
             Notifications.create().title("Login avec Succes")
                     .text("Bonjour " + ug.getNom())
                     .showInformation();
-            System.out.println(ug.getRole());
+            //System.out.println(ug.getRole());
             if (ug.getRole().equals("RRH")) {
 
                 System.out.println("rrh t3adet");

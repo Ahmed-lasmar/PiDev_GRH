@@ -6,6 +6,7 @@
 package GUI;
 
 import GUI_Client.MailServiceImpl;
+import Model.fiche_de_paie;
 import java.io.File;
 import java.net.URL;
 import java.sql.Connection;
@@ -26,6 +27,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -161,6 +163,109 @@ public class BackOfficeController implements Initializable {
     private TableColumn<Congé, Date> c6;
     @FXML
     private TableColumn<Congé, Date> c7;
+    @FXML
+    private DatePicker date_textfield;
+    @FXML
+    private Label id_fp_label;
+    @FXML
+    private Label id_per_label;
+    @FXML
+    private Label salaire_init_label;
+    @FXML
+    private Label id_prime_label;
+    @FXML
+    private TextField total_textfield;
+    @FXML
+    private TextField etat_textfield;
+    @FXML
+    private TextField id_fp_textfield;
+    @FXML
+    private Label salaire_total_label;
+    @FXML
+    private Label date_paiement_label;
+    @FXML
+    private Label etat_paiement_label;
+    @FXML
+    private TextField id_per_textfield;
+    @FXML
+    private TextField init_textfield;
+    @FXML
+    private TextField prime_textfield;
+    @FXML
+    private Button Statistique;
+    @FXML
+    private Button ajouter;
+    @FXML
+    private Button supprimer;
+    @FXML
+    private Button modifier;
+    @FXML
+    private TableView<fiche_de_paie> paiement_tableau;
+    @FXML
+    private TableColumn<fiche_de_paie, Integer> id_fp_colonne;
+    @FXML
+    private TableColumn<fiche_de_paie, Integer> id_per_colonne;
+    @FXML
+    private TableColumn<fiche_de_paie, Integer> salaire_init_colonne;
+    @FXML
+    private TableColumn<fiche_de_paie, Integer> id_prime_colonne;
+    @FXML
+    private TableColumn<fiche_de_paie, Integer> salaire_total_colonne;
+    @FXML
+    private TableColumn<fiche_de_paie, DatePicker> date_paiement_colonne;
+    @FXML
+    private TableColumn<fiche_de_paie, String> etat_paiement_colonne;
+    @FXML
+    private ComboBox<?> trie_combobox_1;
+    @FXML
+    private Button button_croissant;
+    @FXML
+    private Button button_decroissant;
+    @FXML
+    private HBox gestionPai;
+    @FXML
+    private AnchorPane GesPai;
+    @FXML
+    private Button ajouter_prime_2;
+    @FXML
+    private Button supprimer_prime_2;
+    @FXML
+    private Button modifier_prime_2;
+    @FXML
+    private Label id_prime_label_2;
+    @FXML
+    private Label type_prime_label_2;
+    @FXML
+    private Label valeur_prime_label_2;
+    @FXML
+    private Label date_prime_label_2;
+    @FXML
+    private TextField id_prime_textfield_2;
+    @FXML
+    private TextField valeur_prime_textfield_2;
+    @FXML
+    private TextField type_prime_textfield_2;
+    @FXML
+    private TableView<?> tableau_prime_2;
+    @FXML
+    private TableColumn<?, ?> id_prime_colonne_2;
+    @FXML
+    private TableColumn<?, ?> type_prime_colonne_2;
+    @FXML
+    private TableColumn<?, ?> valeur_prime_colonne_2;
+    @FXML
+    private TableColumn<?, ?> date_prime_colonne_2;
+    @FXML
+    private DatePicker date_prime_textfield_2;
+    @FXML
+    private Label nombre_heure_2;
+    @FXML
+    private TextField nombre_heure_textfield_2;
+    @FXML
+    private HBox gestionPrime;
+    @FXML
+    private AnchorPane GePrime;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         comboboxa();
@@ -168,7 +273,7 @@ public class BackOfficeController implements Initializable {
         comboBox();
         showDatao();
         loadTableConge();
-    }    
+    }
 
     @FXML
     private void switchForm(MouseEvent event) {
@@ -178,10 +283,14 @@ public class BackOfficeController implements Initializable {
             searchbox.setVisible(true);
             searchicon.setVisible(true);
             HomeC.setVisible(false);
+            GesPai.setVisible(false);
+            GePrime.setVisible(false);
 
             gestionoffres.setStyle("-fx-background-color:#666666");
             GesCon.setStyle("-fx-background-color:#fff");
             gestionapp.setStyle("-fx-background-color:#fff");
+            gestionPai.setStyle("-fx-background-color:#fff");
+            gestionPrime.setStyle("-fx-background-color:#fff");
 
             showData();
 
@@ -191,134 +300,171 @@ public class BackOfficeController implements Initializable {
             searchbox.setVisible(true);
             searchicon.setVisible(true);
             HomeC.setVisible(false);
+            GesPai.setVisible(false);
+            GePrime.setVisible(false);
 
             gestionoffres.setStyle("-fx-background-color:#fff");
             GesCon.setStyle("-fx-background-color:#fff");
             gestionapp.setStyle("-fx-background-color:#666666");
-            
+            gestionPai.setStyle("-fx-background-color:#fff");
+            gestionPrime.setStyle("-fx-background-color:#fff");
+
         } else if (event.getSource() == GesCon) {
             offreadmin.setVisible(false);
             appadmin.setVisible(false);
             searchbox.setVisible(true);
             searchicon.setVisible(true);
             HomeC.setVisible(true);
+            GesPai.setVisible(false);
+            GePrime.setVisible(false);
 
             gestionoffres.setStyle("-fx-background-color:#fff");
             GesCon.setStyle("-fx-background-color:#666666");
             gestionapp.setStyle("-fx-background-color:#fff");
+            gestionPai.setStyle("-fx-background-color:#fff");
+            gestionPrime.setStyle("-fx-background-color:#fff");
+        }
+        else if (event.getSource() == gestionPai) {
+            offreadmin.setVisible(false);
+            appadmin.setVisible(false);
+            searchbox.setVisible(true);
+            searchicon.setVisible(true);
+            HomeC.setVisible(false);
+            GesPai.setVisible(true);
+            GePrime.setVisible(false);
+
+            gestionoffres.setStyle("-fx-background-color:#fff");
+            GesCon.setStyle("-fx-background-color:#fff");
+            gestionapp.setStyle("-fx-background-color:#fff");
+            gestionPai.setStyle("-fx-background-color:#666666");
+            gestionPrime.setStyle("-fx-background-color:#fff");
+        }
+        else if (event.getSource() == gestionPrime) {
+            offreadmin.setVisible(false);
+            appadmin.setVisible(false);
+            searchbox.setVisible(true);
+            searchicon.setVisible(true);
+            HomeC.setVisible(false);
+            GesPai.setVisible(false);
+            GePrime.setVisible(true);
+
+            gestionoffres.setStyle("-fx-background-color:#fff");
+            GesCon.setStyle("-fx-background-color:#fff");
+            gestionapp.setStyle("-fx-background-color:#fff");
+            gestionPai.setStyle("-fx-background-color:#fff");
+            gestionPrime.setStyle("-fx-background-color:#666666");
         }
     }
 
- 
-
     @FXML
-     public void comboboxa() {
-          List<String> list = new ArrayList<>();
-        
-        for(String data: comboetat){
-            
+    public void comboboxa() {
+        List<String> list = new ArrayList<>();
+
+        for (String data : comboetat) {
+
             list.add(data);
-            
+
         }
-        
+
         ObservableList dataList = FXCollections.observableArrayList(list);
-        
+
         etat.setItems(dataList);
     }
 
     @FXML
-     private void insertimage(ActionEvent event) {
+    private void insertimage(ActionEvent event) {
         FileChooser open = new FileChooser();
-        
-        Stage stage = (Stage)left_main.getScene().getWindow();
-        
+
+        Stage stage = (Stage) left_main.getScene().getWindow();
+
         File file = open.showOpenDialog(stage);
-        
-        if(file != null){
-            
+
+        if (file != null) {
+
             String path = file.getAbsolutePath();
-            
+
             path = path.replace("\\", "\\\\");
-            
+
             file_path.setText(path);
 
             Image image = new Image(file.toURI().toString(), 110, 110, false, true);
-            
+
             image_viewa.setImage(image);
-            
-        }else{
-            
+
+        } else {
+
             System.out.println("aucune image detectée!");
-            
+
         }
     }
     Connection cnx2;
+
     public BackOfficeController() {
-        cnx2=MyConnection.getInstance().getCnx();
+        cnx2 = MyConnection.getInstance().getCnx();
     }
 
     @FXML
     private void ajouterApp(ActionEvent event) {
         String sql = "INSERT INTO application( `candidat`, `offre`, `cv`, `etat`) VALUES (?,?,?,?)";
-        
-        try{
-            
-            if( candlab.getText().isEmpty()
-                    | offlab.getText().isEmpty() 
+
+        try {
+
+            if (candlab.getText().isEmpty()
+                    | offlab.getText().isEmpty()
                     | etat.getSelectionModel().isEmpty()
-                    | image_viewa.getImage() == null){
-                
+                    | image_viewa.getImage() == null) {
+
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                
+
                 alert.setTitle("message d'erreur");
                 alert.setHeaderText(null);
                 alert.setContentText("entrer tous les données");
                 alert.showAndWait();
-                
-            }else{
-            PreparedStatement pst;
-            pst = cnx2.prepareStatement(sql);
-            pst.setString(1, candlab.getText());
-            pst.setString(2, offlab.getText());
-            pst.setString(3,(String)etat.getSelectionModel().getSelectedItem() );
-            pst.setString(4, file_path.getText());
-            pst.executeUpdate();
-            System.out.println("item ajouté avec succés");
-            
+
+            } else {
+                PreparedStatement pst;
+                pst = cnx2.prepareStatement(sql);
+                pst.setString(1, candlab.getText());
+                pst.setString(2, offlab.getText());
+                pst.setString(3, (String) etat.getSelectionModel().getSelectedItem());
+                pst.setString(4, file_path.getText());
+                pst.executeUpdate();
+                System.out.println("item ajouté avec succés");
+
                 showData();
                 clear();
             }
-        }catch(Exception e){}
+        } catch (Exception e) {
+        }
     }
 
     @FXML
     private void modifierApp(ActionEvent event) {
         String path = file_path.getText();
-        
+
         path = path.replace("\\", "\\\\");
-        
-        String sql = "UPDATE application SET `candidat` = '" 
-                + candlab.getText() + "', `offre` = '" 
-                + offlab.getText() 
+
+        String sql = "UPDATE application SET `candidat` = '"
+                + candlab.getText() + "', `offre` = '"
+                + offlab.getText()
                 + "', `etat` = '" + etat.getSelectionModel().getSelectedItem()
                 + "', `date` = '" + Date.valueOf(LocalDate.now())
                 + "' WHERE id_app = '" + Integer.parseInt(idlaba.getText()) + "'";
-        
-        try{
-            
-            if(idlaba.getText().isEmpty() | offlab.getText().isEmpty()
-                    | candlab.getText().isEmpty() 
-                   ){
-                
+
+        try {
+
+            if (idlaba.getText().isEmpty() | offlab.getText().isEmpty()
+                    | candlab.getText().isEmpty()) {
+
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                
+
                 alert.setTitle("message d'erreur");
                 alert.setHeaderText(null);
                 alert.setContentText("Entrer tous les champs!");
                 alert.showAndWait();
-                
-            }else{
-                MailServiceImpl.mailsent("radhwen.rmili@esprit.tn",candlab.getText(),etat.getSelectionModel().getSelectedItem().toString());
+
+            } else {
+                MailServiceImpl.mailsent("radhwen.rmili@esprit.tn", candlab.getText(), etat.getSelectionModel().getSelectedItem().toString());
                 PreparedStatement pst;
                 pst = cnx2.prepareStatement(sql);
                 pst.executeUpdate();
@@ -332,206 +478,211 @@ public class BackOfficeController implements Initializable {
 
                 showData();
                 clear();
-                
-                
+
             }
-        }catch(Exception e){}
-     
+        } catch (Exception e) {
+        }
+
     }
 
     @FXML
     private void supprimerApp(ActionEvent event) {
-          String sql = "DELETE from application WHERE `id_app` = '" + Integer.parseInt(idlaba.getText()) + "'";
-        try{
-            
+        String sql = "DELETE from application WHERE `id_app` = '" + Integer.parseInt(idlaba.getText()) + "'";
+        try {
+
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            
+
             alert.setTitle("Confirmation Message");
             alert.setHeaderText(null);
             alert.setContentText("confirmer la suppression?");
-            
+
             Optional<ButtonType> buttonType = alert.showAndWait();
-            
-            if(buttonType.get() == ButtonType.OK){
-            
-            PreparedStatement pst;
-            pst = cnx2.prepareStatement(sql);
-            pst.executeUpdate();
-                
-            }else{
-                
+
+            if (buttonType.get() == ButtonType.OK) {
+
+                PreparedStatement pst;
+                pst = cnx2.prepareStatement(sql);
+                pst.executeUpdate();
+
+            } else {
+
                 return;
-                
+
             }
-            
+
             showData();
             clear();
-            
-        }catch(Exception e){}
+
+        } catch (Exception e) {
+        }
     }
-    public ObservableList<Application> dataList(){
-        
-       
+
+    public ObservableList<Application> dataList() {
+
         ObservableList<Application> dataList = FXCollections.observableArrayList();
-        
+
         String sql = "SELECT * FROM application";
- 
-        try{
+
+        try {
             PreparedStatement pst;
             pst = cnx2.prepareStatement(sql);
-            ResultSet rs=pst.executeQuery();
+            ResultSet rs = pst.executeQuery();
             Application data;
-            
-            while(rs.next()){
-                
+
+            while (rs.next()) {
+
                 data = new Application(rs.getInt("id_app"), rs.getString("candidat"),
                         rs.getString("offre"), rs.getString("cv"),
                         rs.getString("etat"));
-                
+
                 dataList.add(data);
-                
+
             }
-            
-        }catch(Exception e){}
+
+        } catch (Exception e) {
+        }
         return dataList;
-        
+
     }
-     public void clear(){
-        
+
+    public void clear() {
+
         idlaba.setText("");
         candlab.setText("");
         offlab.setText("");
         etat.getSelectionModel().clearSelection();
         image_viewa.setImage(null);
-        
+
     }
-     public void showData(){
+
+    public void showData() {
         ObservableList<Application> showList = dataList();
-        
+
         col_ida.setCellValueFactory(new PropertyValueFactory<>("id_app"));
         col_offre.setCellValueFactory(new PropertyValueFactory<>("offre"));
         col_candidat.setCellValueFactory(new PropertyValueFactory<>("candidat"));
         col_etat.setCellValueFactory(new PropertyValueFactory<>("etat"));
         col_cv.setCellValueFactory(new PropertyValueFactory<>("CV"));
-       table_view.setItems(showList);
-        
+        table_view.setItems(showList);
+
     }
 
-    
     @FXML
-     public void comboBox() {
-         List<String> list = new ArrayList<>();
-        
-        for(String data: comboSkills){
-            
+    public void comboBox() {
+        List<String> list = new ArrayList<>();
+
+        for (String data : comboSkills) {
+
             list.add(data);
-            
+
         }
-        
+
         ObservableList dataList = FXCollections.observableArrayList(list);
-        
+
         skills.setItems(dataList);
     }
 
     @FXML
     private void insertImage(ActionEvent event) {
-       FileChooser open = new FileChooser();
-        
-        Stage stage = (Stage)left_main1.getScene().getWindow();
-        
+        FileChooser open = new FileChooser();
+
+        Stage stage = (Stage) left_main1.getScene().getWindow();
+
         File file = open.showOpenDialog(stage);
-        
-        if(file != null){
-            
+
+        if (file != null) {
+
             String path = file.getAbsolutePath();
-            
+
             path = path.replace("\\", "\\\\");
-            
+
             file_path1.setText(path);
 
             Image image = new Image(file.toURI().toString(), 110, 110, false, true);
-            
+
             image_view.setImage(image);
-            
-        }else{
-            
+
+        } else {
+
             System.out.println("aucune image detectée!");
-            
+
         }
     }
 
     @FXML
     private void ajouterOffre(ActionEvent event) {
         String sql = "INSERT INTO offreemploi VALUES (?,?,?,?)";
-        
-        try{
-            
-            if(nomlab.getText().isEmpty()
-                    | desclab.getText().isEmpty() 
+
+        try {
+
+            if (nomlab.getText().isEmpty()
+                    | desclab.getText().isEmpty()
                     | skills.getSelectionModel().isEmpty()
-                    | image_view.getImage() == null){
-                
+                    | image_view.getImage() == null) {
+
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                
+
                 alert.setTitle("message d'erreur");
                 alert.setHeaderText(null);
                 alert.setContentText("entrer tous les données");
                 alert.showAndWait();
-                
-            }else{
-            PreparedStatement pst;
-            pst = cnx2.prepareStatement(sql);
-            
-            pst.setString(1, nomlab.getText());
-            pst.setString(2, desclab.getText());
-            pst.setString(4,(String)skills.getSelectionModel().getSelectedItem() );
-            pst.setString(3, file_path1.getText());
-            pst.executeUpdate();
-            System.out.println("item ajouté avec succés");
-            
+
+            } else {
+                PreparedStatement pst;
+                pst = cnx2.prepareStatement(sql);
+
+                pst.setString(1, nomlab.getText());
+                pst.setString(2, desclab.getText());
+                pst.setString(4, (String) skills.getSelectionModel().getSelectedItem());
+                pst.setString(3, file_path1.getText());
+                pst.executeUpdate();
+                System.out.println("item ajouté avec succés");
+
                 showDatao();
                 clearo();
             }
-        }catch(Exception e){}
+        } catch (Exception e) {
+        }
     }
-     public void clearo(){
-        
+
+    public void clearo() {
+
         idlab.setText("");
         nomlab.setText("");
         desclab.setText("");
         skills.getSelectionModel().clearSelection();
         image_view.setImage(null);
-        
+
     }
+
     @FXML
     private void modifierOffre(ActionEvent event) {
         String path = file_path.getText();
-        
+
         path = path.replace("\\", "\\\\");
-        
-        String sql = "UPDATE offreemploi SET `nomOffre` = '" 
-                + nomlab.getText() + "', `description` = '" 
-                + desclab.getText() + "', `skills` = '" 
-                + skills.getSelectionModel().getSelectedItem() 
-                + "', `picture` = '" + path 
+
+        String sql = "UPDATE offreemploi SET `nomOffre` = '"
+                + nomlab.getText() + "', `description` = '"
+                + desclab.getText() + "', `skills` = '"
+                + skills.getSelectionModel().getSelectedItem()
+                + "', `picture` = '" + path
                 + "' WHERE id_offre = '" + Integer.parseInt(idlab.getText()) + "'";
-        
-        try{
-            
-            if(idlab.getText().isEmpty() | nomlab.getText().isEmpty()
-                    | desclab.getText().isEmpty() 
-                    | skills.getSelectionModel().isEmpty()
-                    ){
-                
+
+        try {
+
+            if (idlab.getText().isEmpty() | nomlab.getText().isEmpty()
+                    | desclab.getText().isEmpty()
+                    | skills.getSelectionModel().isEmpty()) {
+
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                
+
                 alert.setTitle("message d'erreur");
                 alert.setHeaderText(null);
                 alert.setContentText("Entrer tous les champs!");
                 alert.showAndWait();
-                
-            }else{
-            
+
+            } else {
+
                 PreparedStatement pst;
                 pst = cnx2.prepareStatement(sql);
                 pst.executeUpdate();
@@ -545,112 +696,118 @@ public class BackOfficeController implements Initializable {
 
                 showDatao();
                 clearo();
-                
+
             }
-        }catch(Exception e){}
-        
+        } catch (Exception e) {
+        }
+
     }
     ObservableList<Congé> oblist = FXCollections.observableArrayList();
-    CongeCrud us= new CongeCrud();
-    
-    private void loadTableConge(){//affiche foramtion
-        List <Congé> fs =us.afficherDemande();
-        fs.forEach(e->oblist.add(e));
+    CongeCrud us = new CongeCrud();
+
+    private void loadTableConge() {//affiche foramtion
+        List<Congé> fs = us.afficherDemande();
+        fs.forEach(e -> oblist.add(e));
         System.out.println(oblist);
         c1.setCellValueFactory(new PropertyValueFactory<>("idCon"));
+
         c2.setCellValueFactory(new PropertyValueFactory<>("idPer"));
         c3.setCellValueFactory(new PropertyValueFactory<>("dDepot"));
         c4.setCellValueFactory(new PropertyValueFactory<>("typeDemande"));
         c5.setCellValueFactory(new PropertyValueFactory<>("etatDemande"));
         c6.setCellValueFactory(new PropertyValueFactory<>("dDepart"));
         c7.setCellValueFactory(new PropertyValueFactory<>("dRetour"));
-        
-     tab.setItems(oblist);
-    } 
-    public ObservableList<OffreEmploi> dataListo(){
-        
-       
+
+        tab.setItems(oblist);
+    }
+
+    public ObservableList<OffreEmploi> dataListo() {
+
         ObservableList<OffreEmploi> dataListo = FXCollections.observableArrayList();
-        
+
         String sql = "SELECT * FROM offreemploi";
-        
-        try{
-            
+
+        try {
+
             PreparedStatement pst;
             pst = cnx2.prepareStatement(sql);
-            ResultSet rs=pst.executeQuery();
+            ResultSet rs = pst.executeQuery();
             OffreEmploi data;
-            
-            while(rs.next()){
-                
+
+            while (rs.next()) {
+
                 data = new OffreEmploi(rs.getInt("id_offre"), rs.getString("nomOffre"),
                         rs.getString("description"), rs.getString("skills"),
                         rs.getString("picture"));
-                
+
                 dataListo.add(data);
-                
+
             }
-            
-        }catch(Exception e){}
-        
+
+        } catch (Exception e) {
+        }
+
         return dataListo;
-        
+
     }
-    public void showDatao(){
+
+    public void showDatao() {
         ObservableList<OffreEmploi> showList = dataListo();
-        
+
         col_id.setCellValueFactory(new PropertyValueFactory<>("id_offre"));
         col_nom.setCellValueFactory(new PropertyValueFactory<>("nomOffre"));
         col_desc.setCellValueFactory(new PropertyValueFactory<>("description"));
         col_skills.setCellValueFactory(new PropertyValueFactory<>("skills"));
         col_picture.setCellValueFactory(new PropertyValueFactory<>("picture"));
-        
+
         table_view1.setItems(showList);
-        
+
     }
+
     @FXML
     private void supprimerOffre(ActionEvent event) {
         String sql = "DELETE from offreemploi WHERE `id_offre` = '" + Integer.parseInt(idlab.getText()) + "'";
-        try{
-            
+        try {
+
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            
+
             alert.setTitle("Confirmation Message");
             alert.setHeaderText(null);
             alert.setContentText("confirmer la suppression?");
-            
+
             Optional<ButtonType> buttonType = alert.showAndWait();
-            
-            if(buttonType.get() == ButtonType.OK){
-            
-            PreparedStatement pst;
-            pst = cnx2.prepareStatement(sql);
-            pst.executeUpdate();
-                
-            }else{
-                
+
+            if (buttonType.get() == ButtonType.OK) {
+
+                PreparedStatement pst;
+                pst = cnx2.prepareStatement(sql);
+                pst.executeUpdate();
+
+            } else {
+
                 return;
-                
+
             }
-            
+
             showDatao();
             clearo();
-            
-        }catch(Exception e){}
+
+        } catch (Exception e) {
+        }
     }
+
     @FXML
     private void selectItem(MouseEvent event) {
-         int index = table_view1.getSelectionModel().getSelectedIndex();
+        int index = table_view1.getSelectionModel().getSelectedIndex();
         OffreEmploi offre = table_view1.getSelectionModel().getSelectedItem();
         idlab.setText(col_id.getCellData(index).toString());
         nomlab.setText(col_nom.getCellData(index).toString());
         desclab.setText(col_desc.getCellData(index).toString());
     }
-    
-    
+
     @FXML
-     private void selectApp(MouseEvent event) {
-         int index = table_view.getSelectionModel().getSelectedIndex();
+    private void selectApp(MouseEvent event) {
+        int index = table_view.getSelectionModel().getSelectedIndex();
         Application app = table_view.getSelectionModel().getSelectedItem();
         idlaba.setText(col_ida.getCellData(index).toString());
         candlab.setText(col_candidat.getCellData(index).toString());
@@ -658,5 +815,60 @@ public class BackOfficeController implements Initializable {
         //file_path.setText(col_cv.getCellData(index).toString());
         //etat.get44444.setText(col_etat.getCellData(index).toString())     
     }
-     
+    Congé co = new Congé();
+
+    @FXML
+    private void getConData(MouseEvent event) {
+        int index = tab.getSelectionModel().getSelectedIndex();
+        Congé app = tab.getSelectionModel().getSelectedItem();
+        co.setIdCon(c1.getCellData(index));
+        System.out.println(co.getIdCon());
+    }
+
+    @FXML
+    private void SuppCon(ActionEvent event) {
+        CongeCrud uc = new CongeCrud();
+        System.out.println(co.getIdCon());
+        //uc.supprimerConge(co.getIdCon());
+
+        tab.getItems().clear();
+        loadTableConge();
+    }
+
+    @FXML
+    private void statistique(ActionEvent event) {
+    }
+
+    @FXML
+    private void ajouter_fiche_de_paiement(ActionEvent event) {
+    }
+
+    @FXML
+    private void supprimer_fiche_de_paie(ActionEvent event) {
+    }
+
+    @FXML
+    private void modifier_fiche_de_paie(ActionEvent event) {
+    }
+
+    @FXML
+    private void fiche_de_paie_selected(MouseEvent event) {
+    }
+
+    @FXML
+    private void ajouter_prime(ActionEvent event) {
+    }
+
+    @FXML
+    private void supprimer_prime(ActionEvent event) {
+    }
+
+    @FXML
+    private void modifier_prime(ActionEvent event) {
+    }
+
+    @FXML
+    private void prime_selected(MouseEvent event) {
+    }
+
 }

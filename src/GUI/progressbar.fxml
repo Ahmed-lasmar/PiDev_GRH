@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" fx:id="progressanchorpane" prefHeight="247.0" prefWidth="564.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18" fx:controller="GUI.ProgressbarController">
+   <children>
+      <ProgressBar fx:id="progressbar" layoutX="115.0" layoutY="97.0" prefHeight="39.0" prefWidth="269.0" progress="0.0" />
+      <ProgressIndicator fx:id="progressindicaotr" layoutX="432.0" layoutY="101.0" progress="0.0" />
+   </children>
+</AnchorPane>

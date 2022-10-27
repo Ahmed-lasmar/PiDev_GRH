@@ -5,6 +5,7 @@
  */
 package service;
 import Model.fiche_de_paie;
+import Model.prime;
 import Util.MaConnexion;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -13,30 +14,15 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 /**
  *
  * @author khlif
  */
 public class FicheDePaieCRUD {
     
-    /*public void ajouterFiche1(){
-        try {
-            String requete = "INSERT INTO fiche_de_paie (ID_FP,ID_Per,Salaire_init,Prime,Salaire_total,Date_paiment,Etat_paiement)"
-                    + "VALUES ('?','?','?','?','?','?','?')";
-            Statement st = new MyConnection().getCnx().createStatement();
-            st.executeUpdate(requete);
-            System.out.println("Fiche de paie ajoutée avec succès! ");
-        } catch (SQLException ex) {
-            System.err.println(ex.getMessage());
-        }
-        
-    }
-    */
     public void ajouterFicheDePaie(fiche_de_paie fp){
         try {
-            String requete1 = "INSERT INTO fiche_de_paie (ID_Per,Salaire_init,Prime,Salaire_total,Date_paiement,Etat_paiement)"
+            String requete1 = "INSERT INTO fiche_de_paie (ID_Per,Salaire_init,ID_Prime,Salaire_total,Date_paiement,Etat_paiement)"
                     + "VALUES (?,?,?,?,?,?)";
             PreparedStatement pst = new MaConnexion().getCnx().prepareStatement(requete1);
             pst.setInt(1, fp.getID_Per());
@@ -54,12 +40,12 @@ public class FicheDePaieCRUD {
         }
     }
     
-    public void supprimerFicheDePaie(int a){
+    public void supprimerFicheDePaie(fiche_de_paie a){
         
         try {
             String requete2 = "DELETE FROM fiche_de_paie WHERE ID_FP =?";
             PreparedStatement pst = new MaConnexion().getCnx().prepareStatement(requete2);
-            pst.setInt(1, a);
+            pst.setInt(1, a.getID_FP());
             pst.executeUpdate();
             System.out.println("Fiche de paie supprimée avec succès!");
         } catch (SQLException ex) {
@@ -69,14 +55,13 @@ public class FicheDePaieCRUD {
     
     /**
      *
-     * @param fp
      * @param fp1
      */
-    public void modifierFicheDePaie(int a, fiche_de_paie fp1){
+    public void modifierFicheDePaie( fiche_de_paie fp1){
         
         try {
-            String requete3 = " UPDATE `fiche_de_paie` SET `ID_FP`=?,`ID_Per`=?,`Salaire_init`=?,`Prime`=?,`Salaire_total`=?,`Date_paiement`=?,`Etat_paiement`=?"
-                    + " WHERE ID_FP=?";
+            String requete3 = " UPDATE `fiche_de_paie` SET `ID_FP`=?,`ID_Per`=?,`Salaire_init`=?,`ID_Prime`=?,`Salaire_total`=?,`Date_paiement`=?,`Etat_paiement`=?"
+                    + " WHERE ID_FP="+fp1.getID_FP()+"";
             PreparedStatement pst = new MaConnexion().getCnx().prepareStatement(requete3);
             pst.setInt(1, fp1.getID_FP());
             pst.setInt(2, fp1.getID_Per());
@@ -85,7 +70,7 @@ public class FicheDePaieCRUD {
             pst.setInt(5, fp1.getSalaire_total());
             pst.setDate(6, fp1.getDate_paiement());
             pst.setString(7, fp1.getEtat_paiement());
-            pst.setInt(8, a);
+            
             pst.executeUpdate();
             System.out.println("Fiche de paie modifiée avec succès!");
             
@@ -117,10 +102,8 @@ public class FicheDePaieCRUD {
         }
         return myList;
     }
-
-    public void supprimerFicheDePaie(fiche_de_paie fp, fiche_de_paie fp1) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
+    
     
     
 }
